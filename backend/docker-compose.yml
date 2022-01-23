@@ -8,8 +8,10 @@ services:
     # volumes:
     #   - db_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ubuntu
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: groupomania
+    ports:
+      - 3306:3306
 
   adminer:
     image: adminer
