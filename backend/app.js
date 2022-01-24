@@ -7,7 +7,7 @@ const userRoutes = require('./routes/user');
 
 app.use(express.json());
 
-app.use('/api/auth', userRoutes);
+app.use('/api/user', userRoutes);
 
 module.exports = app;
 
