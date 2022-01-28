@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jan 27 16:18:52 2022
+# Make data base, printed on Fri Jan 28 20:35:45 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ee3422d7-5a55-4ee4-a938-2438843beecc.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-036fbbda-1443-4704-81bb-132f1a7a3968.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -73,7 +73,7 @@ VSCODE_CODE_CACHE_PATH = /home/david/.config/Code/CachedData/899d46d82c4c95423fb
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.SW83G1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.349KG1
 # default
 .LOADED := 
 # default
@@ -115,7 +115,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 5242
+VSCODE_PID = 7334
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -123,7 +123,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1043,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1043
+SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1056,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1056
 # automatic
 *F = $(notdir $*)
 # environment
@@ -171,7 +171,7 @@ LC_TIME = fr_FR.UTF-8
 # environment
 SNAP = /snap/code/85
 # environment
-INVOCATION_ID = f1b3cb0b944e40118242ba96a8f3a9c8
+INVOCATION_ID = 69b53443fa724d1faeac4d1fd66b9f54
 # environment
 SNAP_REVISION = 85
 # environment
@@ -209,7 +209,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := up-node
 # environment
-SYSTEMD_EXEC_PID = 1076
+SYSTEMD_EXEC_PID = 1089
 # environment
 DISPLAY = :0
 # environment
@@ -225,11 +225,11 @@ SNAP_DATA = /var/snap/code/85
 # environment
 SNAP_CONTEXT = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-MANAGERPID = 962
+MANAGERPID = 968
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5195
+GIO_LAUNCHED_DESKTOP_FILE_PID = 7289
 # environment
 PAGER = less
 # environment
@@ -243,7 +243,7 @@ GDK_PIXBUF_MODULE_FILE = /home/david/snap/code/common/.cache/gdk-pixbuf-loaders.
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:26465
+JOURNAL_STREAM = 8:34827
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -286,6 +286,7 @@ GDMSESSION = ubuntu
 # environment
 LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
+ 
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
 # Load=137/1024=13%, Rehash=0, Collisions=6/167=4%
@@ -296,15 +297,16 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66306, inode 4460079): 16 files, no impossibilities.
+# . (device 66306, inode 4460079): 17 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+ 
 
 # Not a target:
 Makefile:
@@ -368,12 +370,12 @@ down:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 241 B / avg = 9 B
-# current buf: size = 8162 B / used = 241 B / count = 26 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 252 B / avg = 9 B
+# current buf: size = 8162 B / used = 252 B / count = 27 / avg = 9 B
 
-# strcache performance: lookups = 35 / hit rate = 25%
+# strcache performance: lookups = 36 / hit rate = 25%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=0/35=0%
-# Finished Make data base on Thu Jan 27 16:18:52 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/36=0%
+# Finished Make data base on Fri Jan 28 20:35:45 2022
 
  

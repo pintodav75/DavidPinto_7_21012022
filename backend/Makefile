@@ -8,6 +8,6 @@ up-mysql:
 	@docker-compose up
 
 down:
-	@docker-compose down -v --remove-orphans
+	@docker-compose down --remove-orphans
 
 	
