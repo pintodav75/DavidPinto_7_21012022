@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jan 22 03:27:21 2022
+# Make data base, printed on Thu Jan 27 16:18:52 2022
 
 # Variables
 
@@ -23,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-37b631da-43fc-4f94-962c-cd8608cef6b6.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ee3422d7-5a55-4ee4-a938-2438843beecc.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -71,7 +73,7 @@ VSCODE_CODE_CACHE_PATH = /home/david/.config/Code/CachedData/899d46d82c4c95423fb
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.UAUGG1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.SW83G1
 # default
 .LOADED := 
 # default
@@ -113,7 +115,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 17067
+VSCODE_PID = 5242
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -121,7 +123,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1094,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1094
+SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1043,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1043
 # automatic
 *F = $(notdir $*)
 # environment
@@ -169,7 +171,7 @@ LC_TIME = fr_FR.UTF-8
 # environment
 SNAP = /snap/code/85
 # environment
-INVOCATION_ID = b64de097a7cb47e0966c1e300ae70678
+INVOCATION_ID = f1b3cb0b944e40118242ba96a8f3a9c8
 # environment
 SNAP_REVISION = 85
 # environment
@@ -207,7 +209,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := up-node
 # environment
-SYSTEMD_EXEC_PID = 1122
+SYSTEMD_EXEC_PID = 1076
 # environment
 DISPLAY = :0
 # environment
@@ -223,11 +225,11 @@ SNAP_DATA = /var/snap/code/85
 # environment
 SNAP_CONTEXT = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-MANAGERPID = 990
+MANAGERPID = 962
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 17028
+GIO_LAUNCHED_DESKTOP_FILE_PID = 5195
 # environment
 PAGER = less
 # environment
@@ -241,7 +243,7 @@ GDK_PIXBUF_MODULE_FILE = /home/david/snap/code/common/.cache/gdk-pixbuf-loaders.
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:32839
+JOURNAL_STREAM = 8:26465
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -277,6 +279,7 @@ SNAP_COMMON = /var/snap/code/common
 # environment
 SNAP_USER_DATA = /home/david/snap/code/85
 # environment
+ 
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
@@ -286,9 +289,6 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
 # Load=137/1024=13%, Rehash=0, Collisions=6/167=4%
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 
 # Pattern-specific Variable Values
 
@@ -296,9 +296,9 @@ make: *** No rule to make target 'all'.  Stop.
 
 # Directories
 
-# . (device 66306, inode 4460079): 13 files, no impossibilities.
+# . (device 66306, inode 4460079): 16 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -309,7 +309,7 @@ make: *** No rule to make target 'all'.  Stop.
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-22 00:58:58.137906173
+#  Last modified 2022-01-26 17:16:55.668124645
 #  File has been updated.
 #  Successfully updated.
 
@@ -325,13 +325,6 @@ up:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-
-run-sql:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 14):
-	@docker exec -i mysql_container mysql -u root -pubuntu groupomania < ./sql/main.sql
 
 # Not a target:
 .DEFAULT:
@@ -364,22 +357,23 @@ down:
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 11):
-	@docker-compose down
+	@docker-compose down -v --remove-orphans
+	
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/23=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/22=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 220 B / avg = 9 B
-# current buf: size = 8162 B / used = 220 B / count = 24 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 241 B / avg = 9 B
+# current buf: size = 8162 B / used = 241 B / count = 26 / avg = 9 B
 
-# strcache performance: lookups = 34 / hit rate = 29%
+# strcache performance: lookups = 35 / hit rate = 25%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Sat Jan 22 03:27:22 2022
+# Load=26/8192=0%, Rehash=0, Collisions=0/35=0%
+# Finished Make data base on Thu Jan 27 16:18:52 2022
 
  

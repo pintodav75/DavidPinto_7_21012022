@@ -25,7 +25,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       isAdmin: {
-        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

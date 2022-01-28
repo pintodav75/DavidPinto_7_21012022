@@ -10,6 +10,4 @@ up-mysql:
 down:
 	@docker-compose down -v --remove-orphans
 
-run-sql:
-	@docker exec -i mysql_container mysql -u root -ppassword groupomania 
 	
