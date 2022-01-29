@@ -20,7 +20,6 @@ exports.signup = (req, res, next) => {
                         lastName: req.body.lastName
                     })
                     .then((user) => {
-                        console.log(req.)
                         res.status(201).json({ message: 'Utilisateur créé !' })
                     })
                     .catch((err) => res.status(400).json({ err }))
@@ -50,7 +49,7 @@ exports.login = (req, res, next) => {
                 userId: user.id,
                 token: jwt.sign(
                     { userId: user.id },
-                    'RANDOM_SECRET_TOKEN',
+                    'RANDOM_TOKEN_SECRET',
                     { expiresIn: '24h' }
                 )
             });
