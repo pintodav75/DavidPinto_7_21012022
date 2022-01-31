@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jan 28 20:35:45 2022
+# Make data base, printed on Mon Jan 31 16:06:27 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-036fbbda-1443-4704-81bb-132f1a7a3968.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-758f748e-7db6-4b4f-9506-b62223ed6bf5.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -73,7 +73,7 @@ VSCODE_CODE_CACHE_PATH = /home/david/.config/Code/CachedData/899d46d82c4c95423fb
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.349KG1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.RR10G1
 # default
 .LOADED := 
 # default
@@ -115,7 +115,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 7334
+VSCODE_PID = 12227
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -123,7 +123,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1056,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1056
+SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/7081,unix/david-ThinkPad-L590:/tmp/.ICE-unix/7081
 # automatic
 *F = $(notdir $*)
 # environment
@@ -171,7 +171,7 @@ LC_TIME = fr_FR.UTF-8
 # environment
 SNAP = /snap/code/85
 # environment
-INVOCATION_ID = 69b53443fa724d1faeac4d1fd66b9f54
+INVOCATION_ID = a5af847f9d4c4ca79859f26d5f19931b
 # environment
 SNAP_REVISION = 85
 # environment
@@ -209,7 +209,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := up-node
 # environment
-SYSTEMD_EXEC_PID = 1089
+SYSTEMD_EXEC_PID = 7099
 # environment
 DISPLAY = :0
 # environment
@@ -225,11 +225,11 @@ SNAP_DATA = /var/snap/code/85
 # environment
 SNAP_CONTEXT = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-MANAGERPID = 968
+MANAGERPID = 6968
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 7289
+GIO_LAUNCHED_DESKTOP_FILE_PID = 12179
 # environment
 PAGER = less
 # environment
@@ -243,7 +243,7 @@ GDK_PIXBUF_MODULE_FILE = /home/david/snap/code/common/.cache/gdk-pixbuf-loaders.
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:34827
+JOURNAL_STREAM = 8:95052
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -279,14 +279,12 @@ SNAP_COMMON = /var/snap/code/common
 # environment
 SNAP_USER_DATA = /home/david/snap/code/85
 # environment
- 
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # environment
 LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
- 
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
 # Load=137/1024=13%, Rehash=0, Collisions=6/167=4%
@@ -297,21 +295,21 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 66306, inode 4460079): 17 files, no impossibilities.
+ 
+# . (device 66306, inode 4460079): 18 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
- 
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-01-26 17:16:55.668124645
+#  Last modified 2022-01-28 23:43:59.408947248
 #  File has been updated.
 #  Successfully updated.
 
@@ -359,7 +357,7 @@ down:
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 11):
-	@docker-compose down -v --remove-orphans
+	@docker-compose down --remove-orphans
 	
 
 # files hash-table stats:
@@ -370,12 +368,12 @@ down:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 252 B / avg = 9 B
-# current buf: size = 8162 B / used = 252 B / count = 27 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 263 B / avg = 9 B
+# current buf: size = 8162 B / used = 263 B / count = 28 / avg = 9 B
 
-# strcache performance: lookups = 36 / hit rate = 25%
+# strcache performance: lookups = 37 / hit rate = 24%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=0/36=0%
-# Finished Make data base on Fri Jan 28 20:35:45 2022
+# Load=28/8192=0%, Rehash=0, Collisions=0/37=0%
+# Finished Make data base on Mon Jan 31 16:06:27 2022
 
  

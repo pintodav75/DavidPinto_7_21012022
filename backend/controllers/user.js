@@ -4,6 +4,7 @@ const User = require('../models/user');
 const db = require('../models/index');
 
 
+
 exports.signup = (req, res, next) => {
     db.User.findOne({
         attributes: ['email'],
@@ -55,6 +56,38 @@ exports.login = (req, res, next) => {
             });
         })
         .catch(error => res.status(500).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error }));
+};
+
+exports.getOneUser = (req, res, next) => {
+    db.User.findOne({
+        attributes:['email', 'firstName', 'lastName'],
+        where: { id: req.params.id }
+    })
+    .then((user) => res.status(200).json({ user }))
+    .catch(error => res.status(404).json({ error }));
+};
+
+exports.deleteUser = (req, res, next) => {
+    db.User.destroy({
+        where: { id: req.params.id }
+    })
+    .then(() => res.status(200).json({ message: 'utilisateur supprime !' }))
+    .catch(error => res.status(400).json({ error }));
+};
+
+exports.modifyUser = (req, res, next) => {
+    let userObject = {...req.body};
+    db.User.findOne({
+        where: { id: req.params.id }
+    })
+    .then((user) => {
+        db.User.update(userObject, {
+            where: { id: req.params.id }
+        })
+        .then(() => res.status(200).json({ message: 'utilisateur modifie !' }))
+        .catch(error => res.status(400).json({ error }))
     })
     .catch(error => res.status(500).json({ error }));
 };
