@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jan 31 16:06:27 2022
+# Make data base, printed on Wed Feb  2 15:34:58 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -25,7 +27,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-758f748e-7db6-4b4f-9506-b62223ed6bf5.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2357c23d-4495-45ba-97f8-ddb90a898e29.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -73,7 +75,7 @@ VSCODE_CODE_CACHE_PATH = /home/david/.config/Code/CachedData/899d46d82c4c95423fb
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.RR10G1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.V8XNG1
 # default
 .LOADED := 
 # default
@@ -115,7 +117,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 12227
+VSCODE_PID = 2277
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -123,7 +125,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/7081,unix/david-ThinkPad-L590:/tmp/.ICE-unix/7081
+SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1045,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1045
 # automatic
 *F = $(notdir $*)
 # environment
@@ -157,7 +159,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-PATH = /home/david/.nvm/versions/node/v14.18.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -171,7 +173,7 @@ LC_TIME = fr_FR.UTF-8
 # environment
 SNAP = /snap/code/85
 # environment
-INVOCATION_ID = a5af847f9d4c4ca79859f26d5f19931b
+INVOCATION_ID = 7143f4bf03454449996c1f8a56e394fa
 # environment
 SNAP_REVISION = 85
 # environment
@@ -209,7 +211,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := up-node
 # environment
-SYSTEMD_EXEC_PID = 7099
+SYSTEMD_EXEC_PID = 1069
 # environment
 DISPLAY = :0
 # environment
@@ -225,11 +227,11 @@ SNAP_DATA = /var/snap/code/85
 # environment
 SNAP_CONTEXT = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-MANAGERPID = 6968
+MANAGERPID = 964
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 12179
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3079
 # environment
 PAGER = less
 # environment
@@ -243,7 +245,7 @@ GDK_PIXBUF_MODULE_FILE = /home/david/snap/code/common/.cache/gdk-pixbuf-loaders.
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:95052
+JOURNAL_STREAM = 8:30105
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -287,15 +289,15 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=137/1024=13%, Rehash=0, Collisions=6/167=4%
+# Load=138/1024=13%, Rehash=0, Collisions=6/168=4%
 
+ 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
 
- 
 # . (device 66306, inode 4460079): 18 files, no impossibilities.
 
 # 18 files, no impossibilities in 1 directories.
@@ -374,6 +376,6 @@ down:
 # strcache performance: lookups = 37 / hit rate = 24%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=0/37=0%
-# Finished Make data base on Mon Jan 31 16:06:27 2022
+# Finished Make data base on Wed Feb  2 15:34:58 2022
 
  

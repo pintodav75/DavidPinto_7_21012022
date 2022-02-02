@@ -28,7 +28,7 @@ exports.deletePost = (req, res, next) => {
         if (!count) {
          return res.status(404).send({error: 'pas d objet supprime !'});
         }
-        res.status(204).send("post supprime !");
+        res.status(200).send("post supprime !");
     })
     .catch((error) => res.status(403).json({ error }));
 };
