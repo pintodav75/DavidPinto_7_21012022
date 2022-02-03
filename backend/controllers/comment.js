@@ -25,12 +25,12 @@ exports.getAllComment = (req, res, next) => {
         where: { postId: req.params.postId }
     })
     .then(allComment => {
-        if(allComment) {
-            res.status(200).json(allComment);
-            console.log(allComment);
+        if(allComment.length === 0) {
+            console.log(allComment)
+            return res.status(404).json({ error: 'aucun commentaire trouve !'}) 
         }
         else {
-           res.status(404).json({ error: 'aucun commentaire trouve !'}) 
+            res.status(200).json(allComment)
         }
     })
     .catch((error) => res.status(500).json({ error }));

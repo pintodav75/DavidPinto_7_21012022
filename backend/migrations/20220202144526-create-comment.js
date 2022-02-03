@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
@@ -16,6 +17,7 @@ module.exports = {
         }
       },
       postId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Posts',
@@ -23,6 +25,7 @@ module.exports = {
         }
       },
       content: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
