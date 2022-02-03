@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Feb  3 02:17:36 2022
+# Make data base, printed on Thu Feb  3 16:10:43 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ae14016e-6221-4988-8980-b1fb44c38c98.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ed2eb8df-7f95-43af-82b9-47e7a4bcba34.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -73,7 +73,7 @@ VSCODE_CODE_CACHE_PATH = /home/david/.config/Code/CachedData/899d46d82c4c95423fb
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.44QPG1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.5WELG1
 # default
 .LOADED := 
 # default
@@ -115,7 +115,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2184
+VSCODE_PID = 3301
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -123,7 +123,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1071,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1071
+SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1064,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1064
 # automatic
 *F = $(notdir $*)
 # environment
@@ -144,6 +144,7 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
+ 
 # environment
 XMODIFIERS = @im=ibus
 # environment
@@ -171,7 +172,7 @@ LC_TIME = fr_FR.UTF-8
 # environment
 SNAP = /snap/code/85
 # environment
-INVOCATION_ID = 46555d4cdcad4d33bda0368b14aa71e1
+INVOCATION_ID = 5f466dab5a4948d5908b68c98c72325d
 # environment
 SNAP_REVISION = 85
 # environment
@@ -207,9 +208,10 @@ GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.deskto
 # environment
 SNAP_ARCH = amd64
 # makefile
+ 
 .DEFAULT_GOAL := up-node
 # environment
-SYSTEMD_EXEC_PID = 1099
+SYSTEMD_EXEC_PID = 1096
 # environment
 DISPLAY = :0
 # environment
@@ -225,11 +227,11 @@ SNAP_DATA = /var/snap/code/85
 # environment
 SNAP_CONTEXT = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-MANAGERPID = 971
+MANAGERPID = 982
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2140
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3251
 # environment
 PAGER = less
 # environment
@@ -239,12 +241,11 @@ LC_PAPER = fr_FR.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
- 
 GDK_PIXBUF_MODULE_FILE = /home/david/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:31525
+JOURNAL_STREAM = 8:32791
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -283,6 +284,7 @@ SNAP_USER_DATA = /home/david/snap/code/85
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
+ 
 # environment
 LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
@@ -337,6 +339,7 @@ all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 
 up-node:
@@ -374,6 +377,6 @@ down:
 # strcache performance: lookups = 37 / hit rate = 24%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=0/37=0%
-# Finished Make data base on Thu Feb  3 02:17:36 2022
+# Finished Make data base on Thu Feb  3 16:10:43 2022
 
  

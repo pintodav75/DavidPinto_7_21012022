@@ -35,3 +35,23 @@ exports.getAllComment = (req, res, next) => {
     })
     .catch((error) => res.status(500).json({ error }));
 };
+
+exports.deleteComment = (req, res, next) => {
+    db.Comment.findOne({
+        where: { id: req.params.id,
+                 userId: req.body.userId }
+    })
+    .then((count) => {
+        if(count) {
+            db.Comment.destroy({
+                where: { id: req.params.id }
+            })
+            .then(() => res.status(200).json( 'commentaire supprime !' ))
+            .catch((error) => res.status(500).json({ error }));
+        }
+        else {
+            return res.status(500).json('impossible de trouver le commentaire !')
+        }
+    })
+    .catch((error) => res.status(500).json({ error }));
+};
