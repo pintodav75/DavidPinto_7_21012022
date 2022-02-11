@@ -22,11 +22,12 @@ function Login() {
           password: password,
         }),
       });
-      await res.json();
+      const resFinal = await res.json();
       if (res.status === 200) {
         setEmail("");
-        setPassword("");
+        setPassword(""); 
         setSucces(true);
+        localStorage.setItem("token", resFinal.token);
         setMessage("User connected !");
       } else {
         setMessage("Some error occured");
