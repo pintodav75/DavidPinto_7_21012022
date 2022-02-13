@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CreatePost from "./components/createPost";
+import GetAllPost from "./components/getAllPost";
 
 export default function App(props) {
   const [logged, setLogged] = useState(false)
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token !== null) setLogged(true)
@@ -36,7 +37,13 @@ export default function App(props) {
             <button onClick={loggout} >Loggout</button>
           )
         }
-        </nav>   
+        </nav>
+        {logged === true &&
+          <div>
+            <CreatePost/>
+            <GetAllPost/>
+          </div>
+        }   
     </div>
   );
 }

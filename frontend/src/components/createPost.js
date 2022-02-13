@@ -1,10 +1,12 @@
+import { useState } from 'react';
 
-export default function CreatePost() {
-    let HandleCreatePost = async (e) => {
+    function CreatePost() {
         const token = localStorage.getItem('token');
         const [message, setMessage] = useState("");
         const [title, setTitle] = useState("");
         const [content, setContent] = useState("");
+        
+    let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
           let res = await fetch("http://localhost:3001/api/post/new", {
@@ -12,7 +14,7 @@ export default function CreatePost() {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: `${token}`,
+                'Authorization': `Bearer ${token}`
               },
             body: JSON.stringify({
               title: title,
@@ -48,7 +50,8 @@ export default function CreatePost() {
         />
         <button type="submit">Create !</button>
         </form>
+        <div>{message}</div>
         </div>
     )
 }
-  
+  export default CreatePost;
