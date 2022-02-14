@@ -1,36 +1,22 @@
 import { useState } from 'react';
+import { CreatePostAPI } from '../api';
 
     function CreatePost() {
         const token = localStorage.getItem('token');
-        const [message, setMessage] = useState("");
+        const [errorMessage, setErrorMessage] = useState("");
         const [title, setTitle] = useState("");
         const [content, setContent] = useState("");
         
     let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
-          let res = await fetch("http://localhost:3001/api/post/new", {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-              },
-            body: JSON.stringify({
-              title: title,
-              content: content,
-            }),
-          });
-          await res.json();
-          if (res.status === 201) {
+            const newPost = await CreatePostAPI(token, title, content);
+          if (newPost.status === 201) {
             setTitle("");
             setContent("");
-            setMessage("post cree !");
-          } else {
-            setMessage("Some error occured");
-          }
+          } 
         } catch (err) {
-          console.log(err);
+          setErrorMessage(err);    
         }
       };
     return (
@@ -50,7 +36,8 @@ import { useState } from 'react';
         />
         <button type="submit">Create !</button>
         </form>
-        <div>{message}</div>
+        {errorMessage && <div>{errorMessage.toString()}</div>}
+
         </div>
     )
 }

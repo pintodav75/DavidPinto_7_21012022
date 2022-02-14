@@ -1,39 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Post from './post';
+import { GetAllPostAPI } from '../api';
+
 function GetAllPost() {
-        const token = localStorage.getItem('token');
-        const [message, setMessage] = useState("");
-        const [title, setTitle] = useState("");
-        const [content, setContent] = useState("");
-    let HandleAllPost = async (e) => {
-        e.preventDefault();
-        try {
-            let res = await fetch("http://localhost:3001/api/post/",{
-                method: "GET",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                  },
-                body: JSON.stringify({
-                  title: title,
-                  content: content,
-                }),
-            });
-            await res.json();
-            if (res.status === 200) {
-                setTitle("");
-                setContent("");
-                setMessage("tout les posts ont ete recupere !");
-            } else {
-                setMessage("some error occured");
-            }
-        } catch (err) {
-            console.log(err);
-        } 
-    };
+    const token = localStorage.getItem('token');
+
+    const [posts, setPosts] = useState([])
+    const [errorMessage, setErrorMessage] = useState(undefined);
+    useEffect(async () => {
+        try
+        {
+            const allPosts = await GetAllPostAPI(token);
+            setPosts(allPosts);
+        }
+        catch (err) {
+            setErrorMessage(err);
+        }
+    }, [])
+
     return (
-        <div className="GetAllPost">
-            
+        <div>
+            {errorMessage && <div>{errorMessage.toString()}</div>}
+            {posts.reverse().map((post, i) => <Post key={i} {...post} />)}
         </div>
     )
 }
