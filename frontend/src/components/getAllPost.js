@@ -33,7 +33,7 @@ function GetAllPost() {
     };
     return (
         <div className="GetAllPost">
-
+            
         </div>
     )
 }
