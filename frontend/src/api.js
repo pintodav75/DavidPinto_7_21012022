@@ -30,18 +30,14 @@ export const CreatePostAPI = async (token, title, content) => {
 }
 
 // Suppression d'un post
-// export const DeletePostAPI = async(token, postId, userId) => {
-//   let response = await fetch("http://localhost:3001/api/post/${id}", {
-//     method: "DELETE",
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json',
-//       'Authorization': `Bearer ${token}`
-//     },
-//     body: JSON.stringify({
-//       id: postId,
-//       userId: userId,
-//     }),
-//   });
-//   return response;
-// }
+export const DeletePostAPI = async(token, postId) => {
+  let response = await fetch(`http://localhost:3001/api/post/${postId}`, {
+    method: "DELETE",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  });
+  return response;
+}

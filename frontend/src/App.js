@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import CreatePost from "./components/createPost";
 import GetAllPost from "./components/getAllPost";
+import { GetAllPostAPI } from './api';
 
 export default function App(props) {
+  const token = localStorage.getItem('token');
+
   const [logged, setLogged] = useState(false)
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -15,6 +18,24 @@ export default function App(props) {
     localStorage.clear();
     setLogged(false)
   }
+
+  const [posts, setPosts] = useState([])
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const fetchData = async () => {
+      try
+      {
+          const allPosts = await GetAllPostAPI(token);
+          setPosts(allPosts);
+      }
+      catch (err) {
+          setErrorMessage(err);
+      }
+  }
+
+  useEffect(() => {
+    fetchData();
+  })
 
   return (
     <div>
@@ -40,10 +61,11 @@ export default function App(props) {
         </nav>
         {logged === true &&
           <div>
-            <CreatePost/>
-            <GetAllPost/>
+            <CreatePost refresh={fetchData} />
+            <GetAllPost posts={posts} refresh={fetchData} />
           </div>
-        }   
+        }
+        {errorMessage && <div>{errorMessage.toString()}</div>}
     </div>
   );
 }
