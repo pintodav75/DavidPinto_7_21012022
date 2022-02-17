@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { CreatePostAPI } from '../api';
 
-    function CreatePost() {
-        const token = localStorage.getItem('token');
-        const [errorMessage, setErrorMessage] = useState("");
-        const [title, setTitle] = useState("");
-        const [content, setContent] = useState("");
-        
+function CreatePost({ refresh }) {
+      const token = localStorage.getItem('token');
+      const [errorMessage, setErrorMessage] = useState("");
+      const [title, setTitle] = useState("");
+      const [content, setContent] = useState("");
+      
     let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
@@ -14,11 +14,13 @@ import { CreatePostAPI } from '../api';
           if (newPost.status === 201) {
             setTitle("");
             setContent("");
+            refresh()
           } 
         } catch (err) {
           setErrorMessage(err);    
         }
       };
+
     return (
         <div className="CreatePost">
       <form onSubmit={HandleCreatePost}>

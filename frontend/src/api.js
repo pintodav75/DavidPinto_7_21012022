@@ -41,3 +41,33 @@ export const DeletePostAPI = async(token, postId) => {
   });
   return response;
 }
+
+// modification d'un post
+export const UpdatePostAPI = async(token, postId, body) => {
+  let response = await fetch(`http://localhost:3001/api/post/${postId}`, {
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(body),
+  });
+  return response;
+}
+
+// creation d'un commentaire
+export const CreateCommentAPI = async(token, postId, content) => {
+  let response = await fetch(`http://localhost:3001/api/comment/${postId}/new`, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      content: content,
+    }),
+  });
+  return response;
+}

@@ -1,18 +1,16 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CreatePost from "./components/createPost";
 import GetAllPost from "./components/getAllPost";
 import { GetAllPostAPI } from './api';
 
-export default function App(props) {
-  const token = localStorage.getItem('token');
-
+export default function App({ token }) {
   const [logged, setLogged] = useState(false)
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token !== null) setLogged(true)
-  }, [])
+    if (token !== null) {
+      setLogged(true)
+    }
+  }, [token])
 
   const loggout = () => {
     localStorage.clear();
@@ -23,20 +21,17 @@ export default function App(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const fetchData = async () => {
-      try
-      {
-          const allPosts = await GetAllPostAPI(token);
-          setPosts(allPosts);
-      }
-      catch (err) {
-          setErrorMessage(err);
-      }
-  }
-
+    try {
+        const allPosts = await GetAllPostAPI(token);
+        setPosts(allPosts);
+    } catch (err) {
+        setErrorMessage(err);
+    }
+}
   useEffect(() => {
     fetchData();
-  })
-
+  }, [])
+  
   return (
     <div>
       <h1>Groupomania</h1>
@@ -57,11 +52,11 @@ export default function App(props) {
           ) : (
             <button onClick={loggout} >Loggout</button>
           )
-        }
+        } 
         </nav>
         {logged === true &&
           <div>
-            <CreatePost refresh={fetchData} />
+            <CreatePost refresh={fetchData}   />
             <GetAllPost posts={posts} refresh={fetchData} />
           </div>
         }
