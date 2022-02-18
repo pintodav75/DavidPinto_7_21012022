@@ -4,6 +4,7 @@ import { useState } from "react";
 import CreateComment from "./createComment";
 
 
+
 export default function Post ({ id, title, content, userId, refresh }) {
     const [titleValue, setTitleValue] = useState(title);
     const [contentValue, setContentValue] = useState(content);
@@ -47,8 +48,7 @@ export default function Post ({ id, title, content, userId, refresh }) {
             <div>Title: {titleValue}</div>
             <div>Content: {contentValue}</div>
             <div>By: {userId}</div>
-            <button disabled={myDecodedToken.userId !== userId} onClick={() => CreateComment(id)}>comment</button>
-
+            <CreateComment postId={id}/>
             <button disabled={myDecodedToken.userId !== userId} onClick={() => DeletePost(id)}>Delete</button>
             <button disabled={myDecodedToken.userId !== userId} onClick={() => setIsEdit(true)}>Edit</button>
         </div>

@@ -71,3 +71,16 @@ export const CreateCommentAPI = async(token, postId, content) => {
   });
   return response;
 }
+
+// Recuperation des commentaires
+export const GetAllCommentAPI = async (token, postId) => {
+  let response = await fetch(`http://localhost:3001/api/comment/${postId}`, {
+    headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+      });
+      let content = await response.json();
+      return content;
+}

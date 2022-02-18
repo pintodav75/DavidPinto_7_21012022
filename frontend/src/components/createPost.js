@@ -36,7 +36,7 @@ function CreatePost({ refresh }) {
           placeholder="content"
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="submit">Create !</button>
+        <button type="submit">Create post !</button>
         </form>
         {errorMessage && <div>{errorMessage.toString()}</div>}
 
