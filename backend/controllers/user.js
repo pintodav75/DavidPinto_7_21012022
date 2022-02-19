@@ -7,7 +7,7 @@ const db = require('../models/index');
 
 exports.signup = (req, res, next) => {
     db.User.findOne({
-        attributes: ['email'],
+        attributes: ['email', 'password', 'firstName', 'lastName'],
         where: { email: req.body.email }
     })
     .then((user) => {
