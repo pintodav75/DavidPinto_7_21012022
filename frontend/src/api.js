@@ -84,3 +84,16 @@ export const GetAllCommentAPI = async (token, postId) => {
       let content = await response.json();
       return content;
 }
+
+// supresion d'un commentaire
+export const DeleteCommentAPI = async(token, commentId) => {
+  let response = await fetch(`http://localhost:3001/api/comment/${commentId}`, {
+    method: "DELETE",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  });
+  return response;
+}

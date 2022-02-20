@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CreatePost from "./components/createPost";
 import GetAllPost from "./components/getAllPost";
-import { GetAllCommentAPI, GetAllPostAPI } from './api';
-import GetAllComment from "./components/GetAllComment";
+import { GetAllPostAPI } from './api';
 
 export default function App({ token }) {
   const [logged, setLogged] = useState(false)
@@ -19,7 +18,6 @@ export default function App({ token }) {
   }
 
   const [posts, setPosts] = useState([]);
-  const [comments, setComments] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const fetchData = async () => {
@@ -31,17 +29,8 @@ export default function App({ token }) {
     }
 }
 
-const fetchDataComment = async () => {
-  try {
-      const allComments = await GetAllCommentAPI(token);
-      setComments(allComments);
-  } catch (err) {
-      setErrorMessage(err);
-  }
-}
   useEffect(() => {
     fetchData();
-    fetchDataComment();
   }, [])
   
   return (

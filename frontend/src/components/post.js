@@ -2,6 +2,7 @@ import { DeletePostAPI, UpdatePostAPI } from "../api";
 import { decodeToken } from "react-jwt";
 import { useState } from "react";
 import CreateComment from "./createComment";
+import Comment from "./comment";
 
 
 
@@ -48,6 +49,7 @@ export default function Post ({ id, title, content, userId, refresh }) {
             <div>Title: {titleValue}</div>
             <div>Content: {contentValue}</div>
             <div>By: {userId}</div>
+            <Comment token={token} postId={id} />
             <CreateComment postId={id}/>
             <button disabled={myDecodedToken.userId !== userId} onClick={() => DeletePost(id)}>Delete</button>
             <button disabled={myDecodedToken.userId !== userId} onClick={() => setIsEdit(true)}>Edit</button>
