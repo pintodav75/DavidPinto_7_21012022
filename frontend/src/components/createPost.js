@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { CreatePostAPI } from '../api';
+import FileUploadPage from './file-upload';
 
 function CreatePost({ refresh }) {
       const token = localStorage.getItem('token');
       const [errorMessage, setErrorMessage] = useState("");
       const [title, setTitle] = useState("");
       const [content, setContent] = useState("");
+      const [file, setFile] = useState(null);
       
     let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
-            const newPost = await CreatePostAPI(token, title, content);
+          const newPost = await CreatePostAPI(token, title, content, file);
           if (newPost.status === 201) {
             setTitle("");
             setContent("");
@@ -23,6 +25,7 @@ function CreatePost({ refresh }) {
 
     return (
         <div className="CreatePost">
+          <FileUploadPage setFile={(file) => setFile(file)} />
       <form onSubmit={HandleCreatePost}>
         <input
           type="text"

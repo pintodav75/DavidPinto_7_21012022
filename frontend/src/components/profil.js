@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
-import { GetUserAPI } from "../api";
+import { DeleteUserAPI, GetUserAPI } from "../api";
+import { useNavigate } from "react-router-dom";
+import { decodeToken } from "react-jwt";
 
-function User({ token, id }) {
+function User() {
     const [user, setUser] = useState(null);
+    let history = useNavigate();
+    const token = localStorage.getItem('token');
+    const myDecodedToken = decodeToken(token);
+    const id = myDecodedToken.userId
+
+
    useEffect(() => {
        async function GetUser(token, id) {
            try {
@@ -10,6 +18,7 @@ function User({ token, id }) {
                if (res.status === 200) {
                    const userInfo = await res.json();
                    setUser(userInfo);
+                   
                }
            } catch (err) {
                 console.log(err);
@@ -17,6 +26,16 @@ function User({ token, id }) {
        }
        GetUser(token, id);
    }, [])
+
+   async function DeleteUser(token, id) {
+       try {
+            await DeleteUserAPI(token, id);
+            localStorage.clear();
+            history("/")
+       } catch (err){
+           console.log(err);
+       }
+   }
 
    if (!user) {
        return null;
@@ -28,6 +47,7 @@ function User({ token, id }) {
           <div>mon nom: {user.user.lastName}</div>
           <div>mon prenom: {user.user.firstName}</div>
           <div>comtpe cree: {user.user.createdAt}</div>
+          <button  onClick={() => DeleteUser(token, id)}>Delete my account !</button>
        </div>
    )
 }

@@ -13,18 +13,18 @@ export const GetAllPostAPI = async (token) => {
 }
 
 // Creation d'un nouveau post
-export const CreatePostAPI = async (token, title, content) => {
+export const CreatePostAPI = async (token, title, content, file) => {
+    // file.append("title", title);
+    // file.append("content", content);
+
     let response = await fetch("http://localhost:3001/api/post/new", {
             method: "POST",
             headers: {
-                'Accept': 'application/json',
+                // 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
               },
-            body: JSON.stringify({
-              title: title,
-              content: content,
-            }),
+            body: file,
           });
           return response;
 }
@@ -101,6 +101,19 @@ export const DeleteCommentAPI = async(token, commentId) => {
 export const GetUserAPI = async (token, id) => {
   let response = await fetch(`http://localhost:3001/api/user/${id}`, {
     method: "GET",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  });
+  return response;
+}
+
+// Suppression d'un utilisateur
+export const DeleteUserAPI = async(token, id) => {
+  let response = await fetch(`http://localhost:3001/api/user/${id}`, {
+    method: "DELETE",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',

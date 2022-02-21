@@ -11,8 +11,7 @@ import Profil from "./components/profil"
 import { decodeToken } from "react-jwt";
 
 const rootElement = document.getElementById("root");
-const token = localStorage.getItem('token');
-const myDecodedToken = decodeToken(token);
+const token = localStorage.getItem("token");
 
 
 render(
@@ -21,7 +20,7 @@ render(
       <Route path="/" element={<App token={token} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/profil" element={<Profil token={token} id={myDecodedToken.userId}/>} />
+      <Route path="/profil" element={<Profil />} />
     </Routes>
   </BrowserRouter>,
   rootElement
