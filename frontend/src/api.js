@@ -81,14 +81,26 @@ export const GetAllCommentAPI = async (token, postId) => {
             'Authorization': `Bearer ${token}`
           },
       });
-      let content = await response.json();
-      return content;
+      return response;
 }
 
 // supresion d'un commentaire
 export const DeleteCommentAPI = async(token, commentId) => {
   let response = await fetch(`http://localhost:3001/api/comment/${commentId}`, {
     method: "DELETE",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  });
+  return response;
+}
+
+//Recuperation des informaitons d'un user
+export const GetUserAPI = async (token, id) => {
+  let response = await fetch(`http://localhost:3001/api/user/${id}`, {
+    method: "GET",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',

@@ -1,4 +1,3 @@
-import { buildTimeValue } from "@testing-library/user-event/dist/utils";
 import { useEffect, useState } from "react";
 import { DeleteCommentAPI, GetAllCommentAPI } from "../api";
 
@@ -10,7 +9,10 @@ const Comment = ({ token, postId }) => {
         async function getComment() {
             try {
                 const res =  await GetAllCommentAPI(token, postId);
-                setComments(res);
+                if (res.status === 200) {
+                    const tab = await res.json();
+                    setComments(tab);
+                }
             } catch(err) {
                 console.log(err);
             }
@@ -28,11 +30,11 @@ const Comment = ({ token, postId }) => {
 
     return (
     <div>
-        {comments.reverse().map((e, i) => (
-            <>
+        {comments.map((e) => (
+            <div key={ `${e.id}-${e.postId}`}>
                 <div>{e.content}</div>
-                <button onClick={() => DeleteComment(e.id)}>Delete</button>
-            </>
+                <button onClick={() =>  DeleteComment(e.id)}>Delete</button>
+            </div>
         ))}
     </div>
     )

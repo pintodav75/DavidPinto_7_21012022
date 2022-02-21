@@ -51,7 +51,10 @@ export default function App({ token }) {
               <Link to="/Login">Login</Link>
             </>
           ) : (
-            <button onClick={loggout} >Loggout</button>
+            <>
+              <Link to="/profil">view my profil</Link>
+              <button onClick={loggout} >Loggout</button>
+            </>
           )
         } 
         </nav>

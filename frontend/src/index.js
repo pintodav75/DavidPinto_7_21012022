@@ -7,9 +7,13 @@ import {
 import App from "./App";
 import Login from "./components/login";
 import Signup from "./components/signup";
+import Profil from "./components/profil"
+import { decodeToken } from "react-jwt";
 
 const rootElement = document.getElementById("root");
-const token = localStorage.getItem('token')
+const token = localStorage.getItem('token');
+const myDecodedToken = decodeToken(token);
+
 
 render(
   <BrowserRouter>
@@ -17,6 +21,7 @@ render(
       <Route path="/" element={<App token={token} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/profil" element={<Profil token={token} id={myDecodedToken.userId}/>} />
     </Routes>
   </BrowserRouter>,
   rootElement
