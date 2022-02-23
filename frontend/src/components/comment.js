@@ -2,27 +2,33 @@ import { useEffect, useState } from "react";
 import { DeleteCommentAPI, GetAllCommentAPI } from "../api";
 
 
-const Comment = ({ token, postId }) => {
+const Comment = ({ token, postId}) => {
     const [comments, setComments] = useState([]);
 
-    useEffect(() => {
-        async function getComment() {
-            try {
-                const res =  await GetAllCommentAPI(token, postId);
-                if (res.status === 200) {
-                    const tab = await res.json();
-                    setComments(tab);
-                }
-            } catch(err) {
-                console.log(err);
+    async function getComment() {
+        try {
+            const res =  await GetAllCommentAPI(token, postId);
+            if (res.status === 200) {
+                const tab = await res.json();
+                setComments(tab);
             }
+        } catch(err) {
+            console.log(err);
         }
+    }
+
+    useEffect(async () => {
         getComment();
     },[postId])
 
     async function DeleteComment(id) {
         try{
             await DeleteCommentAPI(token, id);
+            const res =  await GetAllCommentAPI(token, postId);
+            if (res.status === 200) {
+                const tab = await res.json();
+                setComments(tab);
+            }
         }catch(err){
             console.log(err);
         }

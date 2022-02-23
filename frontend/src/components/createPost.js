@@ -7,12 +7,12 @@ function CreatePost({ refresh }) {
       const [errorMessage, setErrorMessage] = useState("");
       const [title, setTitle] = useState("");
       const [content, setContent] = useState("");
-      const [file, setFile] = useState(null);
+      // const [file, setFile] = useState(null);
       
     let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
-          const newPost = await CreatePostAPI(token, title, content, file);
+          const newPost = await CreatePostAPI(token, title, content);
           if (newPost.status === 201) {
             setTitle("");
             setContent("");
@@ -25,7 +25,7 @@ function CreatePost({ refresh }) {
 
     return (
         <div className="CreatePost">
-          <FileUploadPage setFile={(file) => setFile(file)} />
+          {/* <FileUploadPage setFile={(file) => setFile(file)} /> */}
       <form onSubmit={HandleCreatePost}>
         <input
           type="text"

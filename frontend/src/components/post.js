@@ -14,6 +14,14 @@ export default function Post ({ id, title, content, userId, refresh }) {
 
     const token = localStorage.getItem('token');
     const myDecodedToken = decodeToken(token);
+    const isAdmin = myDecodedToken.isAdmin
+
+    const shouldDisabled = (isAdmin, userId, userIdPost) => {
+        console.log({ isAdmin, userId, userIdPost  })
+        if (isAdmin) return (false);
+        
+        return userId !== userIdPost;
+    }
 
     async function DeletePost(postId) {
         try{
@@ -43,7 +51,6 @@ export default function Post ({ id, title, content, userId, refresh }) {
         )
     }
 
-
     return (
         <div style={{border: "solid"}}>
             <div>postId: {id}</div>
@@ -52,8 +59,8 @@ export default function Post ({ id, title, content, userId, refresh }) {
             <div>By: {userId}</div>
             <Comment token={token} postId={id} />
             <CreateComment postId={id}/>
-            <button disabled={myDecodedToken.userId !== userId} onClick={() => DeletePost(id)}>Delete</button>
-            <button disabled={myDecodedToken.userId !== userId} onClick={() => setIsEdit(true)}>Edit</button>
+            <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => DeletePost(id)}>Delete POST</button>
+            <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => setIsEdit(true)}>Edit</button>
         </div>
     )
 }

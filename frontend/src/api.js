@@ -13,24 +13,25 @@ export const GetAllPostAPI = async (token) => {
 }
 
 // Creation d'un nouveau post
-export const CreatePostAPI = async (token, title, content, file) => {
-    // file.append("title", title);
-    // file.append("content", content);
-
-    let response = await fetch("http://localhost:3001/api/post/new", {
-            method: "POST",
-            headers: {
-                // 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-              },
-            body: file,
-          });
-          return response;
+export const CreatePostAPI = async (token, title, content) => {
+  let response = await fetch("http://localhost:3001/api/post/new", {
+          method: "POST",
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+          body: JSON.stringify({
+            title: title,
+            content: content,
+          }),
+        });
+        return response;
 }
 
 // Suppression d'un post
 export const DeletePostAPI = async(token, postId) => {
+  console.log(postId);
   let response = await fetch(`http://localhost:3001/api/post/${postId}`, {
     method: "DELETE",
     headers: {
@@ -119,6 +120,20 @@ export const DeleteUserAPI = async(token, id) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     },
+  });
+  return response;
+}
+
+// Modification d'un user
+export const UpdateUserAPI = async(token, id, body) => {
+  let response = await fetch(`http://localhost:3001/api/user/${id}`, {
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(body),
   });
   return response;
 }
