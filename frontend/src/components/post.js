@@ -4,6 +4,15 @@ import { useState } from "react";
 import CreateComment from "./createComment";
 import Comment from "./comment";
 import FileUploadPage from "./file-upload";
+import { Avatar, List, ListItem, ListItemText } from "@mui/material";
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import * as React from 'react';
+import { Typography } from "@mui/material";
+import { Divider } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import { Link } from "react-router-dom";
+
 
 
 
@@ -17,7 +26,6 @@ export default function Post ({ id, title, content, userId, refresh }) {
     const isAdmin = myDecodedToken.isAdmin
 
     const shouldDisabled = (isAdmin, userId, userIdPost) => {
-        console.log({ isAdmin, userId, userIdPost  })
         if (isAdmin) return (false);
         
         return userId !== userIdPost;
@@ -52,15 +60,55 @@ export default function Post ({ id, title, content, userId, refresh }) {
     }
 
     return (
-        <div style={{border: "solid"}}>
-            <div>postId: {id}</div>
-            <div>Title: {titleValue}</div>
-            <div>Content: {contentValue}</div>
-            <div>By: {userId}</div>
-            <Comment token={token} postId={id} />
-            <CreateComment postId={id}/>
-            <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => DeletePost(id)}>Delete POST</button>
-            <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => setIsEdit(true)}>Edit</button>
-        </div>
+        <List sx={{ width: '100%', maxWidth: 450,  }} >
+            <ListItem alignItems="flex-start" >
+            <ListItemAvatar>
+                <Avatar alt="img profil" src=""/>
+            </ListItemAvatar>
+            <ListItemText 
+          primary={
+            <React.Fragment>
+              <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="h5"
+                color="text.primary"
+              >
+                {titleValue}
+              </Typography>              
+            </React.Fragment>
+          }
+          secondary={
+            <React.Fragment>
+              <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="subtitle2"
+                color="text.primary"
+              >
+                Ali Connors
+              </Typography>
+               {" — "} {contentValue}
+            </React.Fragment>
+          }
+        />
+        {!shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId) && 
+            <>
+                <EditOutlinedIcon  onClick={() => setIsEdit(true)} style={{ color: 'grey', cursor: "pointer" }} />
+                <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
+            </>
+        }
+
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        </List>
     )
 }
+            // <div>postId: {id}</div>
+            // <div>Title: {titleValue}</div>
+            // <div>Content: {contentValue}</div>
+            // <div>By: {userId}</div>
+            // <Comment token={token} postId={id} />
+            // <CreateComment postId={id}/>
+            // <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => DeletePost(id)}>Delete POST</button>
+            // <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => setIsEdit(true)}>Edit</button>

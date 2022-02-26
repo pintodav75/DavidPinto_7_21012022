@@ -24,7 +24,7 @@ function CreatePost({ refresh }) {
       };
 
     return (
-        <div className="CreatePost">
+        <div className="CreatePost" style={{ border: "solid 2px red" }} >
           {/* <FileUploadPage setFile={(file) => setFile(file)} /> */}
       <form onSubmit={HandleCreatePost}>
         <input

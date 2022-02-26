@@ -2,7 +2,7 @@ import Post from './post';
 
 function GetAllPost({ posts, refresh  }) {
     return (
-        <div>
+        <div style={{  }}>
             {posts.reverse().map((post) => <Post key={post.id}  {...post} refresh={refresh} />)}
         </div>
     )
