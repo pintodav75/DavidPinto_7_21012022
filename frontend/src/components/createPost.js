@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { CreatePostAPI } from '../api';
 import FileUploadPage from './file-upload';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
+
+
 
 function CreatePost({ refresh }) {
       const token = localStorage.getItem('token');
@@ -22,27 +28,35 @@ function CreatePost({ refresh }) {
           setErrorMessage(err);    
         }
       };
-
     return (
-        <div className="CreatePost" style={{ border: "solid 2px red" }} >
+        <div className="CreatePost" style={{ border: "solid 2px red", padding: "25px" }} >
           {/* <FileUploadPage setFile={(file) => setFile(file)} /> */}
-      <form onSubmit={HandleCreatePost}>
-        <input
-          type="text"
-          value={title}
-          placeholder="Titre"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          value={content}
-          placeholder="content"
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button type="submit">Create post !</button>
-        </form>
-        {errorMessage && <div>{errorMessage.toString()}</div>}
-
+          <form onSubmit={HandleCreatePost}>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+          noValidate
+          autoComplete="off"
+        >
+      <TextField
+        id="outlined-name"
+        label="title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      /> <br></br>
+      <TextField
+        id="outlined-name"
+        label="your post..."
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      /> <br></br>
+    </Box>
+    <Button type='submit' variant="contained" endIcon={<SendIcon />}>
+        submit
+      </Button>
+    </form>
         </div>
     )
 }

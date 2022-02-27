@@ -60,7 +60,7 @@ export default function Post ({ id, title, content, userId, refresh }) {
     }
 
     return (
-        <List sx={{ width: '100%', maxWidth: 450,  }} >
+        <List sx={{ width: '100%', maxWidth: 360  }} >
             <ListItem alignItems="flex-start" >
             <ListItemAvatar>
                 <Avatar alt="img profil" src=""/>
