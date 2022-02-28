@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Input from '@mui/material/Input';
 import SendIcon from '@mui/icons-material/Send';
 import { Button } from '@mui/material';
+import ModeCommentIcon from '@mui/icons-material/ModeComment';
 
 
 
@@ -34,11 +35,11 @@ function    CreateComment (props) {
                 noValidate
                 autoComplete="off"
             >
-                <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', borderRadius: 5, width: 250 }}>
-                    <Input placeholder="comment here..." type="text"
+                <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', borderRadius: 5, width: 250, border: "solid 2px #1976d2" }}>
+                    <Input placeholder="  comment here..." type="text"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}  />
-                    <Button type='submit' variant="text" endIcon={<SendIcon />}></Button>
+                    <Button type='submit' variant="text" endIcon={<ModeCommentIcon />}></Button>
                 </div>
             </Box>
             </form>

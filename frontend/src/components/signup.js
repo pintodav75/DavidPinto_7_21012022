@@ -1,5 +1,10 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import React from "react";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import "./style.css";
+
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -42,39 +47,50 @@ function Signup() {
   };
 
   return (
-    <div className="Signup">
-       {succes && <Navigate to="/" />}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+    <div className="loginBox" style={{   width: "50%", display: "flex", p: 1,
+    m: 1,
+      textAlign: "center",
+      justifyContent: "center",
+      position: "relative",
+      left: "50%",
+      transform: "translate(-50%, 20%)",
+      padding: "20px",
+      backgroundColor: "white",
+      boxShadow: "0 0 20px 2px rgba(0, 0, 0, 0.4)" }} >
+        {succes && <Navigate to="/" />}
+      <form  style={{ display: "flex", flexDirection: "column", width: 300, }} onSubmit={handleSubmit}>
+        <TextField style={{ marginBottom: "5px" }}
+          name="email"
+          placeholder="email"
           value={email}
-          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <TextField style={{ marginBottom: "5px" }}
+          name="password"
           type="password"
+          placeholder="password"
           value={password}
-          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input
-          type="text"
+        <TextField style={{ marginBottom: "5px" }}
+          name="first name"
+          placeholder="first name"
           value={firstName}
-          placeholder="First name"
           onChange={(e) => setFirstname(e.target.value)}
         />
-        <input
-          type="text"
+        <TextField style={{ marginBottom: "5px" }}
+          name="last name"
+          placeholder="last name"
           value={lastName}
-          placeholder="Last name"
           onChange={(e) => setLastname(e.target.value)}
         />
-
-        <button type="submit">Signup</button>
-
-        <div className="message">{message ? <p>{message}</p> : null}</div>
+        <br />
+        <Button  type="submit" variant="contained">CREATE ACCOUNT </Button>
       </form>
+      
     </div>
+
+    
   );
 }
 

@@ -1,5 +1,10 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import React from "react";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import "./style.css";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -37,26 +42,58 @@ function Login() {
   };
 
   return (
-    <div className="Login">
-       {succes && <Navigate to="/" />}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+    <div className="loginBox" style={{   width: "50%", display: "flex", p: 1,
+    m: 1,
+      textAlign: "center",
+      justifyContent: "center",
+      position: "relative",
+      left: "50%",
+      transform: "translate(-50%, 20%)",
+      padding: "20px",
+      backgroundColor: "white",
+      boxShadow: "0 0 20px 2px rgba(0, 0, 0, 0.4)" }} >
+        {succes && <Navigate to="/" />}
+      <form  style={{ display: "flex", flexDirection: "column", width: 300, }} onSubmit={handleSubmit}>
+        <TextField style={{ marginBottom: "5px" }}
+          name="email"
+          placeholder="email"
           value={email}
-          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <TextField style={{ marginBottom: "5px" }}
+          name="password"
           type="password"
+          placeholder="password"
           value={password}
-          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
-
-        <div className="message">{message ? <p>{message}</p> : null}</div>
+        <br />
+        <Button style={{ backgroundColor: "green" }} type="submit" variant="contained">LOGIN </Button>
       </form>
+      
     </div>
+
+
+    // <div className="Login">
+    //    {succes && <Navigate to="/" />}
+    //   <form onSubmit={handleSubmit}>
+    //     <input
+    //       type="text"
+    //       value={email}
+    //       placeholder="Email"
+    //       onChange={(e) => setEmail(e.target.value)}
+    //     />
+    //     <input
+    //       type="password"
+    //       value={password}
+    //       placeholder="Password"
+    //       onChange={(e) => setPassword(e.target.value)}
+    //     />
+    //     <button type="submit">Login</button>
+
+    //     <div className="message">{message ? <p>{message}</p> : null}</div>
+    //   </form>
+    // </div>
   );
 }
 

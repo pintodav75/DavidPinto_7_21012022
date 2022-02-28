@@ -1,12 +1,9 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
 const db = require('../models/index');
 
-
-
 exports.signup = (req, res, next) => {
-    db.User.findOne({
+    db.Users.findOne({
         attributes: ['email', 'password', 'firstName', 'lastName'],
         where: { email: req.body.email }
     })
@@ -14,7 +11,7 @@ exports.signup = (req, res, next) => {
         if (!user) {
             bcrypt.hash(req.body.password, 10)
                 .then(hash => {
-                    db.User.create({
+                    db.Users.create({
                         email: req.body.email,
                         password: hash,
                         firstName: req.body.firstName,
@@ -32,9 +29,9 @@ exports.signup = (req, res, next) => {
     .catch( error => res.status(500).json({ error }));
     
 };
-
+    
 exports.login = (req, res, next) => {
-    db.User.findOne({
+    db.Users.findOne({
         where: { email: req.body.email}
     })
     .then(user => {
@@ -49,7 +46,7 @@ exports.login = (req, res, next) => {
             res.status(200).json({
                 userId: user.id,
                 token: jwt.sign(
-                    { userId: user.id },
+                    { userId: user.id, isAdmin: user.isAdmin },
                     'RANDOM_TOKEN_SECRET',
                     { expiresIn: '24h' }
                 )
@@ -61,8 +58,7 @@ exports.login = (req, res, next) => {
 };
 
 exports.getOneUser = (req, res, next) => {
-    db.User.findOne({
-        attributes:['email', 'firstName', 'lastName'],
+    db.Users.findOne({
         where: { id: req.params.id }
     })
     .then((user) => res.status(200).json({ user }))
@@ -70,7 +66,7 @@ exports.getOneUser = (req, res, next) => {
 };
 
 exports.deleteUser = (req, res, next) => {
-    db.User.destroy({
+    db.Users.destroy({
         where: { id: req.params.id }
     })
     .then(() => res.status(200).json({ message: 'utilisateur supprime !' }))
@@ -78,12 +74,16 @@ exports.deleteUser = (req, res, next) => {
 };
 
 exports.modifyUser = (req, res, next) => {
-    let userObject = {...req.body};
-    db.User.findOne({
+    let userObject = {
+        ...req.body,
+    };
+    if (req.file)
+        userObject.imageUrl = req.file.filename
+    db.Users.findOne({
         where: { id: req.params.id }
     })
-    .then((user) => {
-        db.User.update(userObject, {
+    .then(() => {
+        db.Users.update(userObject, {
             where: { id: req.params.id }
         })
         .then(() => res.status(200).json({ message: 'utilisateur modifie !' }))

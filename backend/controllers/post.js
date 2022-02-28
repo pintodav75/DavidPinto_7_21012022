@@ -1,28 +1,35 @@
 const db = require('../models/index');
-const Post = require('../models/post');
 
 exports.createPost = (req, res, next) => {
     db.Post.create({
         userId: req.body.userId,
         title: req.body.title,
-        content: req.body.content,
-        // imageUrl: req.body.imageUrl
+        content: req.body.content
+        // imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
     .then(() => res.status(201).json("post cree !"))
     .catch((error) => res.status(400).json({ error }));
 };
 
 exports.getAllPost =  (req, res, next) => {
-    db.Post.findAll()
+    db.Post.findAll({
+        include: [{ model: db.Users }]
+    })
     .then((allPost) => res.status(200).end(JSON.stringify(allPost, null, 2)))
     .catch((error) => res.status(500).json({ error }));
 };
 
 exports.deletePost = (req, res, next) => {
+    let conds = {}
+    
+    if (req.body.isAdmin != true) {
+        conds = {  userId: req.body.userId }
+    }
+
     db.Post.destroy({
         where: {
          id: req.params.id,
-         userId: req.body.userId,
+         ...conds,
         }
        }).then(count => {
         if (!count) {

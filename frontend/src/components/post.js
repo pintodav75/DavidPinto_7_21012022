@@ -4,14 +4,24 @@ import { useState } from "react";
 import CreateComment from "./createComment";
 import Comment from "./comment";
 import FileUploadPage from "./file-upload";
-import { Avatar, List, ListItem, ListItemText } from "@mui/material";
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import * as React from 'react';
-import { Typography } from "@mui/material";
 import { Divider } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import { red } from "@mui/material/colors";
 
 
 
@@ -50,64 +60,115 @@ export default function Post ({ id, title, content, userId, refresh, User }) {
 
     if (isEdit) {
         return (
-            <form onSubmit={OnEdit}>
-                Title <input type="text" value={titleValue} onChange={(e) => setTitleValue(e.target.value)} />
-                Content <input type="text" value={contentValue}  onChange={(e) => setContentValue(e.target.value)} />
-                <button onClick={() => setIsEdit(false)}>Cancel</button>
-                <button type="submit">Edit</button>
-            </form>
+          <div style={{ border: "solid 2px red", padding: "25px" }} >
+          <form onSubmit={OnEdit}>
+          <Box
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+              noValidate
+              autoComplete="off"
+            >
+          <TextField
+            id="outlined-name"
+            label="title"
+            value={titleValue}
+            onChange={(e) => setTitleValue(e.target.value)}
+          /> <br></br>
+          <TextField
+            id="outlined-name"
+            label="your post..."
+            value={contentValue}
+            onChange={(e) => setContentValue(e.target.value)}
+          /> <br></br>
+        </Box>
+        <Button type='submit' variant="contained" endIcon={<SendIcon />}>
+            Update !
+          </Button>
+    </form>
+        </div>
         )
     }
 
     return (
-        <List sx={{ width: '100%', maxWidth: 360  }} >
-            <ListItem alignItems="flex-start" style={{ backgroundColor: "#D3DCE2", borderRadius: 5 }}>
-            <ListItemAvatar>
-              <div style={{ display: "flex", justifyContent: "row", flexDirection: "column", alignItems: "center"}}>
-                <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
-                <div style={{ padding: 5 }}>{User.firstName}</div>
-              </div>
-            </ListItemAvatar>
-            <ListItemText 
-          primary={
-            <React.Fragment>
-               {titleValue} 
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="h5"
-                color="text.primary"
-              >
-              </Typography>              
-            </React.Fragment>
-          }
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="subtitle2"
-                color="text.primary"
-              >
-               
-              </Typography>
-              <div style={{ color: "red" }}>
-               {contentValue}
-               </div>
-            </React.Fragment>
-          }
-        />
-        {!shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId) && 
-            <>
-                <EditOutlinedIcon  onClick={() => setIsEdit(true)} style={{ color: 'grey', cursor: "pointer" }} />
-                <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
+      <Card sx={{ maxWidth: 345 }} style={{ border: "solid 1px 1px 1px 0 green", marginTop: "10px", marginLeft: "38%" }} >
+      <CardHeader
+        avatar={
+          <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
+        }
+        title={titleValue}
+        subheader="date de creation"
+        
+      />
+      {!shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId) && 
+             <>
+                 <EditOutlinedIcon  onClick={() => setIsEdit(true)} style={{ color: 'grey', cursor: "pointer" }} />
+               <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
             </>
         }
-        </ListItem>
-        <Comment token={token} postId={id} />
+      <CardMedia
+        component="img"
+        height="194"
+        image='http://localhost:3001/images/1646084484180sauce-barbecue.jpg'
+        alt="Paella dish"
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        {contentValue}
+        </Typography>
+      </CardContent>
+      <Comment token={token} postId={id} />
         <CreateComment postId={id}/>
-        <Divider variant="inset" component="li" />
-        </List>
+    </Card>
+
+
+
+        // <List sx={{ width: '100%', maxWidth: 360  }} >
+        //     <ListItem alignItems="flex-start" style={{ backgroundColor: "#D3DCE2", borderRadius: 5 }}>
+        //     <ListItemAvatar>
+        //       <div style={{ display: "flex", justifyContent: "row", flexDirection: "column", alignItems: "center"}}>
+        //         <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
+        //         <div style={{ padding: 5 }}>{User.firstName}</div>
+        //       </div>
+        //     </ListItemAvatar>
+        //     <ListItemText 
+        //   primary={
+        //     <React.Fragment>
+        //        {titleValue} 
+        //       <Typography
+        //         sx={{ display: 'inline' }}
+        //         component="span"
+        //         variant="h5"
+        //         color="text.primary"
+        //       >
+        //       </Typography>              
+        //     </React.Fragment>
+        //   }
+        //   secondary={
+        //     <React.Fragment>
+        //       <Typography
+        //         sx={{ display: 'inline' }}
+        //         component="span"
+        //         variant="subtitle2"
+        //         color="text.primary"
+        //       />
+        //       <div style={{ color: "red" }}>
+        //        {contentValue}
+        //        </div>
+        //     </React.Fragment>
+        //   }
+        // />
+        // {!shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId) && 
+        //     <>
+        //         <EditOutlinedIcon  onClick={() => setIsEdit(true)} style={{ color: 'grey', cursor: "pointer" }} />
+        //         <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
+        //     </>
+        // }
+        // </ListItem>
+        // <Comment token={token} postId={id} />
+        // <CreateComment postId={id}/>
+        // <Divider variant="inset" component="li" />
+        // </List>
     )
 }
             

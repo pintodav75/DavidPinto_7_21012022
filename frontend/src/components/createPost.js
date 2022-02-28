@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { CreatePostAPI } from '../api';
-import FileUploadPage from './file-upload';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
+import FileUploadPage from "./file-upload";
+
 
 
 
@@ -13,7 +14,7 @@ function CreatePost({ refresh }) {
       const [errorMessage, setErrorMessage] = useState("");
       const [title, setTitle] = useState("");
       const [content, setContent] = useState("");
-      // const [file, setFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState(null);
       
     let HandleCreatePost = async (e) => {
         e.preventDefault();
@@ -29,7 +30,7 @@ function CreatePost({ refresh }) {
         }
       };
     return (
-        <div className="CreatePost" style={{ border: "solid 2px red", padding: "25px" }} >
+        <div className="CreatePost" style={{ border: "solid 2px #1976d2", borderRadius: 5, padding: "25px" }} >
           <form onSubmit={HandleCreatePost}>
       <Box
         sx={{
@@ -51,6 +52,7 @@ function CreatePost({ refresh }) {
         onChange={(e) => setContent(e.target.value)}
       /> <br></br>
     </Box>
+    <FileUploadPage setFile={(file) => { setSelectedFile(file) } } />
     <Button type='submit' variant="contained" endIcon={<SendIcon />}>
         Post !
       </Button>

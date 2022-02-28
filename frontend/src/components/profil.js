@@ -7,21 +7,19 @@ import FileUploadPage from "./file-upload";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
+import '@fontsource/roboto/400.css';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-
-
-
-
+import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
 
 function User() {
-
     const [user, setUser] = useState(null);
     const [isEdit, setIsEdit] = useState(false);
     const [firstNameValue, setFirstNameValue] = useState("");
@@ -82,7 +80,6 @@ function User() {
 		        formData.append('firstName', firstNameValue);
 		        formData.append('lastName', lastNameValue);
            await UpdateUserAPI(token, id, formData)
-           await GetUser(token, id);
        } catch (err) {
            console.log(err);
        }
@@ -90,13 +87,41 @@ function User() {
 
    if (isEdit) {
        return (
-           <form onSubmit={UpdateUser} >
-               first name <input type="text" value={firstNameValue} onChange={(e) => setFirstNameValue(e.target.value)} />
-               last name <input type="text" value={lastNameValue} onChange={(e) => setLastNameValue(e.target.value)} />
-               <button onClick={() => setIsEdit(false)}>Cancel</button> < br />
-               <FileUploadPage setFile={(file) =>  { setSelectedFile(file) } } />
-               <button type="submit">Edit</button>
-           </form>
+        <div className="UpdateUser" style={{ border: "solid 2px red", padding: "25px" }} >
+        <form onSubmit={UpdateUser}>
+      <Box
+        sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+          noValidate
+          autoComplete="off"
+      >
+        <TextField
+          id="outlined-name"
+          label="first name"
+          value={firstNameValue}
+          onChange={(e) => setFirstNameValue(e.target.value)}
+        /> <br></br>
+        <TextField
+          id="outlined-name"
+          label="last name"
+          value={lastNameValue}
+          onChange={(e) => setLastNameValue(e.target.value)}
+        /> <br></br>
+      </Box>
+      <FileUploadPage setFile={(file) =>  { setSelectedFile(file) } } />
+      <Button type='submit' variant="contained" endIcon={<SendIcon />}>
+          Update !
+        </Button>
+      </form>
+      </div>
+          //  <form onSubmit={UpdateUser} >
+          //      first name <input type="text" value={firstNameValue} onChange={(e) => setFirstNameValue(e.target.value)} />
+          //      last name <input type="text" value={lastNameValue} onChange={(e) => setLastNameValue(e.target.value)} />
+          //      <button onClick={() => setIsEdit(false)}>Cancel</button> < br />
+          //      <FileUploadPage setFile={(file) =>  { setSelectedFile(file) } } />
+          //      <button type="submit">Edit</button>
+          //  </form>
        )
    }
 
@@ -126,13 +151,37 @@ function User() {
         </Toolbar>
       </AppBar>
     </Box>
-    <div style={{ display: "flex", justifyContent: "center", backgroundColor: "grey", width: "auto", height: "auto" }} >
-      <div style={{ display: "flex", justifyContent: "center", backgroundColor: "black", height: 200, width: 200 }}>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justify="center"
+      style={{ minHeight: '100vh' }}
+    >
 
+    <Grid item xs={3} padding="200px" >
+      <Card sx={{ maxWidth: 345, width: "345px" }}>
+      <CardMedia
+        component="img"
+        height="170"
+        alt="img profil"
+        image={`http://localhost:3001/images/${user.user.imageUrl}`}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        {user.user.lastName} {user.user.firstName}
+        </Typography>
+        
+      </CardContent>
+      <CardActions>
+        <Button size="small">delete</Button>
+        <Button onClick={() => setIsEdit(true)} size="small">Edit </Button>
+      </CardActions>
+    </Card>
+    </Grid>      
+ </Grid>
       </div>
-      
-    </div>
-  </div>
    )
 }
 export default User;

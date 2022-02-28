@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
       const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
       const userId = decodedToken.userId;
       req.body.userId = userId;
+      req.body.isAdmin = decodedToken.isAdmin;
       next();
     } catch {
       res.status(401).json({
