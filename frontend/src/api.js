@@ -129,11 +129,9 @@ export const UpdateUserAPI = async(token, id, body) => {
   let response = await fetch(`http://localhost:3001/api/user/${id}`, {
     method: "PUT",
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     },
-    body: JSON.stringify(body),
+    body: body,
   });
   return response;
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { DeleteCommentAPI, GetAllCommentAPI } from "../api";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
 
 
 const Comment = ({ token, postId}) => {
@@ -37,9 +39,9 @@ const Comment = ({ token, postId}) => {
     return (
     <div>
         {comments.map((e) => (
-            <div key={ `${e.id}-${e.postId}`}>
+            <div key={ `${e.id}-${e.postId}`} style={{ display: "flex", justifyContent: "space-between", borderStyle: "inset"  }} >
                 <div>{e.content}</div>
-                <button onClick={() =>  DeleteComment(e.id)}>Delete</button>
+                <HighlightOffIcon fontSize="inherit" onClick={() =>  DeleteComment(e.id)} style={{ cursor: "pointer" }} />
             </div>
         ))}
     </div>

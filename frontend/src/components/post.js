@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 
 
-export default function Post ({ id, title, content, userId, refresh }) {
+export default function Post ({ id, title, content, userId, refresh, User }) {
     const [titleValue, setTitleValue] = useState(title);
     const [contentValue, setContentValue] = useState(content);
     const [isEdit, setIsEdit] = useState(false);
@@ -61,20 +61,23 @@ export default function Post ({ id, title, content, userId, refresh }) {
 
     return (
         <List sx={{ width: '100%', maxWidth: 360  }} >
-            <ListItem alignItems="flex-start" >
+            <ListItem alignItems="flex-start" style={{ backgroundColor: "#D3DCE2", borderRadius: 5 }}>
             <ListItemAvatar>
-                <Avatar alt="img profil" src=""/>
+              <div style={{ display: "flex", justifyContent: "row", flexDirection: "column", alignItems: "center"}}>
+                <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
+                <div style={{ padding: 5 }}>{User.firstName}</div>
+              </div>
             </ListItemAvatar>
             <ListItemText 
           primary={
             <React.Fragment>
+               {titleValue} 
               <Typography
                 sx={{ display: 'inline' }}
                 component="span"
                 variant="h5"
                 color="text.primary"
               >
-                {titleValue}
               </Typography>              
             </React.Fragment>
           }
@@ -86,9 +89,11 @@ export default function Post ({ id, title, content, userId, refresh }) {
                 variant="subtitle2"
                 color="text.primary"
               >
-                Ali Connors
+               
               </Typography>
-               {" — "} {contentValue}
+              <div style={{ color: "red" }}>
+               {contentValue}
+               </div>
             </React.Fragment>
           }
         />
@@ -98,17 +103,11 @@ export default function Post ({ id, title, content, userId, refresh }) {
                 <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
             </>
         }
-
         </ListItem>
+        <Comment token={token} postId={id} />
+        <CreateComment postId={id}/>
         <Divider variant="inset" component="li" />
         </List>
     )
 }
-            // <div>postId: {id}</div>
-            // <div>Title: {titleValue}</div>
-            // <div>Content: {contentValue}</div>
-            // <div>By: {userId}</div>
-            // <Comment token={token} postId={id} />
-            // <CreateComment postId={id}/>
-            // <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => DeletePost(id)}>Delete POST</button>
-            // <button disabled={shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId)} onClick={() => setIsEdit(true)}>Edit</button>
+            

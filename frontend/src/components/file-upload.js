@@ -5,31 +5,11 @@ function FileUploadPage({ setFile }){
 	const [isSelected, setIsSelected] = useState();
 
 	const changeHandler = (event) => {
-		setSelectedFile(event.target.files[0]);
-		setIsSelected(true);
+		setFile(event.target.files[0]);
 	};
 
-	const handleSubmission = () => {
-		const formData = new FormData();
-		formData.append('File', selectedFile);
-        setFile(formData)
-	};
-
-	return(
-   <div>
-			<input type="file" name="file" onChange={changeHandler} />
-			{isSelected ? (
-				<div>
-					<p>Filename: {selectedFile.name}</p>
-				</div>
-			) : (
-				<p>Select a file to show details</p>
-			)}
-			<div>
-				<button onClick={handleSubmission}>Submit</button>
-			</div>
-	</div>
-	)
+	return <input type="file" name="uploaded_file" onChange={changeHandler} />
+	
 }
 
 export default FileUploadPage;

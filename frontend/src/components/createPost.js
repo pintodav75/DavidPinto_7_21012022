@@ -30,10 +30,8 @@ function CreatePost({ refresh }) {
       };
     return (
         <div className="CreatePost" style={{ border: "solid 2px red", padding: "25px" }} >
-          {/* <FileUploadPage setFile={(file) => setFile(file)} /> */}
           <form onSubmit={HandleCreatePost}>
       <Box
-        component="form"
         sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
         }}
@@ -54,7 +52,7 @@ function CreatePost({ refresh }) {
       /> <br></br>
     </Box>
     <Button type='submit' variant="contained" endIcon={<SendIcon />}>
-        submit
+        Post !
       </Button>
     </form>
         </div>
