@@ -25,3 +25,38 @@ form {
     }
   }
   
+  /* Footer */
+
+  .footer__social-item {
+    background-color: #fff;
+  }
+  
+  .list__primary-text {
+    color: #fff;
+  }
+  
+  .footer__disclaimer {
+    padding-bottom: 0;
+  }
+  
+  .footer__disclaimer-logo {
+    margin-top: 0;
+  }
+  
+  .footer__disclaimer-logo-container {
+    margin-top: 0;
+  }
+  
+  .footer__disclaimer {
+    padding: 32px 0;
+  }
+  
+  .footer__disclaimer-logo,
+  .footer__disclaimer-logo-container {
+    margin: 0 auto 1rem;
+  }
+  
+  .footer--disclaimer-three-columns.footer .footer__disclaimer {
+    padding: 32px 0;
+  }
+  

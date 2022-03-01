@@ -5,7 +5,6 @@ import CreateComment from "./createComment";
 import Comment from "./comment";
 import FileUploadPage from "./file-upload";
 import * as React from 'react';
-import { Divider } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Box from '@mui/material/Box';
@@ -87,7 +86,7 @@ export default function Post ({ id, title, content, userId, refresh, User }) {
     }
 
     return (
-      <Card sx={{ maxWidth: 345 }} style={{ border: "solid 1px 1px 1px 0 green", marginTop: "10px", marginLeft: "38%" }} >
+      <Card sx={{ maxWidth: 345 }} style={{ border: "solid 1px 1px 1px 0 green", marginTop: "10px" }} >
       <CardHeader
         avatar={
           <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />

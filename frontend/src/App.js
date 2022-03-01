@@ -8,7 +8,16 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
-
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Grid  from "@mui/material/Grid";
+import Container from '@mui/material/Container';
+import "./style/style.css";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
 export default function App({ token }) {
@@ -43,45 +52,60 @@ export default function App({ token }) {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ borderRadius: 10 }}>
-        <Toolbar style={{ display: "flex", alignItems: "center" }}>
-          <Link to="/">
-          <HomeIcon style={{ color: 'white' }} sx={{ fontSize: 30 }}  >
-          </HomeIcon>
-          </Link>
-          <Typography variant="h4" component="div" style={{ marginLeft: "40%" }} sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <HomeIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Groupomania
           </Typography>
           {
             !logged ? (
-            <Box sx={{ display: 'flex',  }} style={{ gap: 20, width: 200 }} >
-            <Link to="/Signup"  style={{ fontFamily: 'roboto', textDecoration: "none", backgroundColor: "white", color: "#1976d2", fontSize: "18px", borderRadius: 5, width: 200, textAlign: "center", alignItems: "center", height: 25, border: "solid 1px #A6DBFF",  }} >
-                Sign up 
-            </Link>
-            <Link to="/Login" style={{  fontFamily: 'roboto', textDecoration: "none", color: "white", fontSize: "18px", borderRadius: 5, width: 200, textAlign: "center", height: 25, border: "solid 1px #A6DBFF"  }} >
-                Login 
-            </Link>
-            </Box>
+              <>
+              <Button color="inherit" href="/Signup" >Sign Up</Button>
+              <Button color="inherit" href="/login" color="success" >Login</Button>
+              </>
             ) : (
-              <Box sx={{ display: 'flex',  }} style={{ gap: 20, width: 200 }} >
-              <Link to="/profil" style={{ fontFamily: 'roboto', textDecoration: "none", color: "white", fontSize: "18px", borderRadius: 5, width: 200, textAlign: "center", height: 25, border: "solid 1px #A6DBFF"  }} >
-                My profil 
-                </Link>
-              <Link to="/" onClick={loggout} style={{  backgroundColor: "red", fontFamily: 'roboto', textDecoration: "none", color: "white", fontSize: "18px", borderRadius: 5, width: 200, textAlign: "center", height: 25, border: "solid 1px #A6DBFF" }} >
-                Logout</Link>
-            </Box>
+              <>
+              <Button color="inherit" href="/profil" >Profil</Button>
+              <Button  onClick={loggout} color="error" >Logout</Button>
+              </>
             )
-          }
+            }
         </Toolbar>
       </AppBar>
-    </Box> 
+    </Box>
         {logged === true &&
           <div>
             <CreatePost refresh={fetchData}   />
             <GetAllPost posts={posts} refresh={fetchData} />
+            <footer style={{ backgroundColor: "#1976d2", alignItems: "center", justifyContent: "center", display: "flex", width: "100%", border: "solid 2px black", borderRadius: 5 }} >
+      <div class="footer__disclaimer">
+        <div class="lost-container">
+            <h1 style={{ color: "white", fontFamily: "Roboto" }} >GROUPOMANIA</h1>
+            <p>© 2022 -  Reseau social d'entreprise</p>
+              <span>Contact:</span>
+              <span style={{ borderBottom: "solid 1px black" }} > groupomania@gmail.com</span>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "5px" }}>
+              <InstagramIcon></InstagramIcon>
+              <TwitterIcon></TwitterIcon>
+              <FacebookIcon></FacebookIcon>
+              <LinkedInIcon></LinkedInIcon>
+              </div>
+        </div>
+      </div>
+    </footer>
           </div>
         }
         {errorMessage && <div>{errorMessage.toString()}</div>}
+        
     </div>
   );
 }
