@@ -21,7 +21,7 @@ import Typography from "@mui/material/Typography";
 
 
 
-export default function Post ({ id, title, content, userId, refresh, User }) {
+export default function Post ({ id, createdAt, imageUrl, title, content, userId, refresh, User }) {
     const [titleValue, setTitleValue] = useState(title);
     const [contentValue, setContentValue] = useState(content);
     const [isEdit, setIsEdit] = useState(false);
@@ -29,6 +29,8 @@ export default function Post ({ id, title, content, userId, refresh, User }) {
     const token = localStorage.getItem('token');
     const myDecodedToken = decodeToken(token);
     const isAdmin = myDecodedToken.isAdmin
+
+    const newDate = new Date(createdAt)
 
     const shouldDisabled = (isAdmin, userId, userIdPost) => {
         if (isAdmin) return (false);
@@ -92,8 +94,7 @@ export default function Post ({ id, title, content, userId, refresh, User }) {
           <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
         }
         title={titleValue}
-        subheader="date de creation"
-        
+        subheader= {newDate.toUTCString()}
       />
       {!shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId) && 
              <>
@@ -104,7 +105,7 @@ export default function Post ({ id, title, content, userId, refresh, User }) {
       <CardMedia
         component="img"
         height="194"
-        image='http://localhost:3001/images/1646084484180sauce-barbecue.jpg'
+        image={`http://localhost:3001/images/${imageUrl || 'no-image.png'}`}
         alt="Paella dish"
       />
       <CardContent>

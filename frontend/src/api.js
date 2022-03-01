@@ -13,18 +13,13 @@ export const GetAllPostAPI = async (token) => {
 }
 
 // Creation d'un nouveau post
-export const CreatePostAPI = async (token, title, content) => {
+export const CreatePostAPI = async (token, body) => {
   let response = await fetch("http://localhost:3001/api/post/new", {
           method: "POST",
           headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`
             },
-          body: JSON.stringify({
-            title: title,
-            content: content,
-          }),
+          body: body,
         });
         return response;
 }

@@ -19,9 +19,11 @@ function CreatePost({ refresh }) {
     let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
-          
-            const newPost = await CreatePostAPI(token, title, content);
-          
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            formData.append('title', title);
+            formData.append('content', content);
+            const newPost = await CreatePostAPI(token, formData);
           if (newPost.status === 201) {
             setTitle("");
             setContent("");

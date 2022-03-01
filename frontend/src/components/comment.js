@@ -40,7 +40,7 @@ const Comment = ({ token, postId}) => {
     <div>
         {comments.map((e) => (
             <div key={ `${e.id}-${e.postId}`} style={{ display: "flex", justifyContent: "space-between", borderStyle: "outset"  }} >
-                <div>{e.id} {e.content}</div>
+                <div> {e.content}</div>
                 <HighlightOffIcon fontSize="inherit" onClick={() =>  DeleteComment(e.id)} style={{ cursor: "pointer" }} />
             </div>
         ))}
