@@ -3,7 +3,11 @@ import { Navigate } from "react-router-dom";
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import "./style.css";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from "react-router-dom";
+import "../style/style.css";
+import "../style/signup.css";
+
 
 
 function Login() {
@@ -52,6 +56,9 @@ function Login() {
       padding: "20px",
       backgroundColor: "white",
       boxShadow: "0 0 20px 2px rgba(0, 0, 0, 0.4)" }} >
+        <Link to="/">
+    <ArrowBackIcon  fontSize="large" style={{ color: "#1976d"}} ></ArrowBackIcon>
+    </Link>
         {succes && <Navigate to="/" />}
       <form  style={{ display: "flex", flexDirection: "column", width: 300, }} onSubmit={handleSubmit}>
         <TextField style={{ marginBottom: "5px" }}
@@ -69,6 +76,8 @@ function Login() {
         />
         <br />
         <Button style={{ backgroundColor: "green" }} type="submit" variant="contained">LOGIN </Button>
+        <div className="message">{message ? <p>{message}</p> : null}</div>
+
       </form>
       
     </div>

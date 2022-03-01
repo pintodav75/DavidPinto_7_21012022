@@ -1,6 +1,9 @@
 const db = require('../models/index');
 
 exports.createPost = (req, res, next) => {
+    if (!req.body.title || !req.body.content ) {
+        return res.status(400).json("error");
+    }
     db.Post.create({
         userId: req.body.userId,
         title: req.body.title,

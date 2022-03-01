@@ -4,12 +4,10 @@ import { useState } from "react";
 import CreateComment from "./createComment";
 import Comment from "./comment";
 import FileUploadPage from "./file-upload";
-import ListItemAvatar from '@mui/material/ListItemAvatar';
 import * as React from 'react';
 import { Divider } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
@@ -19,9 +17,7 @@ import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 
 
 
@@ -117,7 +113,7 @@ export default function Post ({ id, title, content, userId, refresh, User }) {
         {contentValue}
         </Typography>
       </CardContent>
-      <Comment token={token} postId={id} />
+        <Comment token={token} postId={id} />
         <CreateComment postId={id}/>
     </Card>
 

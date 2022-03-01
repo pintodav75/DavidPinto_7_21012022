@@ -11,7 +11,7 @@ import FileUploadPage from "./file-upload";
 
 function CreatePost({ refresh }) {
       const token = localStorage.getItem('token');
-      const [errorMessage, setErrorMessage] = useState("");
+      const [message, setMessage] = useState("");
       const [title, setTitle] = useState("");
       const [content, setContent] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
@@ -19,18 +19,23 @@ function CreatePost({ refresh }) {
     let HandleCreatePost = async (e) => {
         e.preventDefault();
         try {
-          const newPost = await CreatePostAPI(token, title, content);
+          
+            const newPost = await CreatePostAPI(token, title, content);
+          
           if (newPost.status === 201) {
             setTitle("");
             setContent("");
             refresh()
           } 
+          else {
+            setMessage("Some error occured");
+          }
         } catch (err) {
-          setErrorMessage(err);    
+          console.log(err);
         }
       };
     return (
-        <div className="CreatePost" style={{ border: "solid 2px #1976d2", borderRadius: 5, padding: "25px" }} >
+        <div className="CreatePost" style={{ border: "solid 2px #1976d2", borderStyle: "none none solid solid" ,borderRadius: "5px 5px 0 5px", padding: "25px" }} >
           <form onSubmit={HandleCreatePost}>
       <Box
         sx={{
@@ -51,6 +56,8 @@ function CreatePost({ refresh }) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
       /> <br></br>
+      <div className="message">{message ? <p>{message}</p> : null}</div>
+
     </Box>
     <FileUploadPage setFile={(file) => { setSelectedFile(file) } } />
     <Button type='submit' variant="contained" endIcon={<SendIcon />}>
