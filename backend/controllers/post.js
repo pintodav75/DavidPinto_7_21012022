@@ -1,14 +1,16 @@
 const db = require('../models/index');
 
 exports.createPost = (req, res, next) => {
+    console.log(req.body)
     if (!req.body.title || !req.body.content ) {
         return res.status(400).json("error");
     }
+
     db.Post.create({
         userId: req.body.userId,
         title: req.body.title,
-        content: req.body.content
-        // imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        content: req.body.content,
+        imageUrl: req.file ? req.file.filename : undefined
     })
     .then(() => res.status(201).json("post cree !"))
     .catch((error) => res.status(400).json({ error }));

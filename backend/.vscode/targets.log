@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Mar  1 16:26:09 2022
+# Make data base, printed on Wed Mar  2 19:39:09 2022
 
 # Variables
 
@@ -16,8 +16,6 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
-# environment
-NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -27,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9370eeee-db04-456f-a831-0dd009ce964d.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9f9235ea-8bde-42eb-8633-c90a71ebeb4d.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 # environment
@@ -121,7 +119,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4869
+VSCODE_PID = 42924
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -163,7 +161,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/david/.nvm/versions/node/v14.18.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -235,7 +233,7 @@ MANAGERPID = 936
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 10230
+GIO_LAUNCHED_DESKTOP_FILE_PID = 42877
 # environment
 PAGER = less
 # environment
@@ -282,9 +280,9 @@ SUFFIXES :=
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
+ 
 # environment
 SNAP_COMMON = /var/snap/code/common
- 
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
@@ -298,7 +296,7 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=142/1024=14%, Rehash=0, Collisions=7/172=4%
+# Load=141/1024=14%, Rehash=0, Collisions=7/171=4%
 
 # Pattern-specific Variable Values
 
@@ -384,6 +382,6 @@ down:
 # strcache performance: lookups = 38 / hit rate = 23%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=0/38=0%
-# Finished Make data base on Tue Mar  1 16:26:09 2022
+# Finished Make data base on Wed Mar  2 19:39:09 2022
 
  
