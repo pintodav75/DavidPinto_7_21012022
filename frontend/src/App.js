@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import CreatePost from "./components/createPost";
 import GetAllPost from "./components/getAllPost";
 import { GetAllPostAPI } from './api';
@@ -10,9 +9,6 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Grid  from "@mui/material/Grid";
-import Container from '@mui/material/Container';
 import "./style/style.css";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -47,7 +43,7 @@ export default function App({ token }) {
 
   useEffect(() => {
     fetchData();
-  }, [])
+  },[])
   
   return (
     <div>
@@ -60,6 +56,7 @@ export default function App({ token }) {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            href="http://localhost:3000/"
           >
             <HomeIcon />
           </IconButton>
@@ -70,7 +67,7 @@ export default function App({ token }) {
             !logged ? (
               <>
               <Button color="inherit" href="/Signup" >Sign Up</Button>
-              <Button color="inherit" href="/login" color="success" >Login</Button>
+              <Button  href="/login" color="success" >Login</Button>
               </>
             ) : (
               <>

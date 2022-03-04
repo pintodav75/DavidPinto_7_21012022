@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { DeleteUserAPI, GetUserAPI, UpdateUserAPI } from "../api";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
-import { Link } from "react-router-dom";
 import FileUploadPage from "./file-upload";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
+import { IconButton } from "@mui/material";
 
 function User() {
     const [user, setUser] = useState(null);
@@ -132,22 +132,34 @@ function User() {
    return (
        <div>
             <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ borderRadius: 10 }}>
-        <Toolbar style={{ display: "flex", alignItems: "center" }}>
-          <Link to="/">
-          <HomeIcon style={{ color: 'white' }} sx={{ fontSize: 30 }}  >
-          </HomeIcon>
-          </Link>
-          <Typography variant="h4" component="div" style={{ marginLeft: "40%" }} sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            href="http://localhost:3000/"
+          >
+            <HomeIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Groupomania
           </Typography>
-              <Box sx={{ display: 'flex',  }} style={{ gap: 20, width: 200 }} >
-              <Link to="/profil" style={{ fontFamily: 'roboto', textDecoration: "none", color: "white", fontSize: "18px", borderRadius: 5, width: 200, textAlign: "center", height: 25, border: "solid 1px #A6DBFF"  }} >
-                My profil 
-                </Link>
-              <Link to="/" onClick={loggout} style={{  backgroundColor: "red", fontFamily: 'roboto', textDecoration: "none", color: "white", fontSize: "18px", borderRadius: 5, width: 200, textAlign: "center", height: 25, border: "solid 1px #A6DBFF" }} >
-                Logout</Link>
-            </Box>
+          {
+            !logged ? (
+              <>
+              <Button color="inherit" href="/Signup" >Sign Up</Button>
+              <Button color="inherit" href="/login" color="success" >Login</Button>
+              </>
+            ) : (
+              <>
+              <Button color="inherit" href="/profil" >Profil</Button>
+              <Button  onClick={loggout} color="error" >Logout</Button>
+              </>
+            )
+            }
         </Toolbar>
       </AppBar>
     </Box>
@@ -160,8 +172,8 @@ function User() {
       style={{ minHeight: '100vh' }}
     >
 
-    <Grid item xs={3} padding="200px" >
-      <Card sx={{ maxWidth: 345, width: "345px" }}>
+    <Grid item xs={3} padding="100px" >
+      <Card sx={{  }}>
       <CardMedia
         component="img"
         height="170"
@@ -175,7 +187,7 @@ function User() {
         
       </CardContent>
       <CardActions>
-        <Button size="small">delete</Button>
+        <Button onClick={() => DeleteUser(token, id)} href="http://localhost:3000/" size="small">delete</Button>
         <Button onClick={() => setIsEdit(true)} size="small">Edit </Button>
       </CardActions>
     </Card>
@@ -186,18 +198,4 @@ function User() {
 }
 export default User;
 
-        // <Button size="small">Delete</Button>
-        // <Button size="small">Edit</Button>
-
-{/* <div style={{ backgroundColor: "lightGrey", width: "auto", height: "auto", display: "flex", justifyContent: "center" }}>
-<Avatar sx={{ width: "15%", height: "15%" }} alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />    
-</div> */}
-
-          // <div> mon  email: {user.user.email}</div>
-          // <div>mon nom: {user.user.lastName}</div>
-          // <div>mon prenom: {user.user.firstName}</div>
-          // <div>compte cree: {user.user.createdAt}</div>
-          // <div>is admin ? { JSON.stringify(user.user.isAdmin) }</div>
-          // <img width="200" height="200" src={`http://localhost:3001/images/${user.user.imageUrl}`} />
-          // <button onClick={() => DeleteUser(token, id)}>Delete my account !</button>
-          // <button onClick={() => setIsEdit(true)}>Edit my account</button>
+       

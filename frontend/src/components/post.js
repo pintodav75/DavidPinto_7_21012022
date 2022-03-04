@@ -3,7 +3,6 @@ import { decodeToken } from "react-jwt";
 import { useState } from "react";
 import CreateComment from "./createComment";
 import Comment from "./comment";
-import FileUploadPage from "./file-upload";
 import * as React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
@@ -28,7 +27,6 @@ export default function Post ({ id, createdAt, imageUrl, title, content, userId,
 
     const token = localStorage.getItem('token');
     const myDecodedToken = decodeToken(token);
-    const isAdmin = myDecodedToken.isAdmin
 
     const newDate = new Date(createdAt)
 
