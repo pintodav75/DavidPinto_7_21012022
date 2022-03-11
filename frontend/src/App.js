@@ -15,14 +15,20 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
+import { useLocation } from "react-router-dom";
 
-export default function App({ token }) {
+export default function App() {
+  let location = useLocation();
+
   const [logged, setLogged] = useState(false)
   useEffect(() => {
-    if (token !== null) {
+    const token = localStorage.getItem("token");
+    if (token !== null)
       setLogged(true)
-    }
-  }, [token])
+    else
+      setLogged(false)
+
+  }, [location])
 
   const loggout = () => {
     localStorage.clear();
@@ -34,7 +40,7 @@ export default function App({ token }) {
 
   const fetchData = async () => {
     try {
-        const allPosts = await GetAllPostAPI(token);
+        const allPosts = await GetAllPostAPI();
         setPosts(allPosts);
     } catch (err) {
         setErrorMessage(err);
@@ -43,7 +49,7 @@ export default function App({ token }) {
 
   useEffect(() => {
     fetchData();
-  },[])
+  },[location])
   
   return (
     <div>
@@ -83,9 +89,13 @@ export default function App({ token }) {
           <div>
             <CreatePost refresh={fetchData}   />
             <GetAllPost posts={posts} refresh={fetchData} />
+            <div style={{ 
+          left: 0,
+          bottom: 0,
+          right: 0, }} >
             <footer style={{ backgroundColor: "#1976d2", alignItems: "center", justifyContent: "center", display: "flex", width: "100%", border: "solid 2px black", borderRadius: 5 }} >
-      <div class="footer__disclaimer">
-        <div class="lost-container">
+      <div className="footer__disclaimer">
+        <div className="lost-container">
             <h1 style={{ color: "white", fontFamily: "Roboto" }} >GROUPOMANIA</h1>
             <p>© 2022 -  Reseau social d'entreprise</p>
               <span>Contact:</span>
@@ -99,6 +109,7 @@ export default function App({ token }) {
         </div>
       </div>
     </footer>
+    </div>
           </div>
         }
         {errorMessage && <div>{errorMessage.toString()}</div>}

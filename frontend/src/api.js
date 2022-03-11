@@ -1,6 +1,8 @@
+
 // Recuperation de tout les posts
-export const GetAllPostAPI = async (token) => {
-    let response = await fetch("http://localhost:3001/api/post", {
+export const GetAllPostAPI = async () => {
+    const token = localStorage.getItem("token");
+    let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/post`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ export const GetAllPostAPI = async (token) => {
 
 // Creation d'un nouveau post
 export const CreatePostAPI = async (token, body) => {
-  let response = await fetch("http://localhost:3001/api/post/new", {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/post/new`, {
           method: "POST",
           headers: {
               'Authorization': `Bearer ${token}`
@@ -27,7 +29,7 @@ export const CreatePostAPI = async (token, body) => {
 // Suppression d'un post
 export const DeletePostAPI = async(token, postId) => {
   console.log(postId);
-  let response = await fetch(`http://localhost:3001/api/post/${postId}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/post/${postId}`, {
     method: "DELETE",
     headers: {
       'Accept': 'application/json',
@@ -40,7 +42,7 @@ export const DeletePostAPI = async(token, postId) => {
 
 // modification d'un post
 export const UpdatePostAPI = async(token, postId, body) => {
-  let response = await fetch(`http://localhost:3001/api/post/${postId}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/post/${postId}`, {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
@@ -54,7 +56,7 @@ export const UpdatePostAPI = async(token, postId, body) => {
 
 // creation d'un commentaire
 export const CreateCommentAPI = async(token, postId, content) => {
-  let response = await fetch(`http://localhost:3001/api/comment/${postId}/new`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/comment/${postId}/new`, {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -70,7 +72,7 @@ export const CreateCommentAPI = async(token, postId, content) => {
 
 // Recuperation des commentaires
 export const GetAllCommentAPI = async (token, postId) => {
-  let response = await fetch(`http://localhost:3001/api/comment/${postId}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/comment/${postId}`, {
     headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -82,7 +84,7 @@ export const GetAllCommentAPI = async (token, postId) => {
 
 // supresion d'un commentaire
 export const DeleteCommentAPI = async(token, commentId) => {
-  let response = await fetch(`http://localhost:3001/api/comment/${commentId}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/comment/${commentId}`, {
     method: "DELETE",
     headers: {
       'Accept': 'application/json',
@@ -95,7 +97,7 @@ export const DeleteCommentAPI = async(token, commentId) => {
 
 //Recuperation des informaitons d'un user
 export const GetUserAPI = async (token, id) => {
-  let response = await fetch(`http://localhost:3001/api/user/${id}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/user/${id}`, {
     method: "GET",
     headers: {
       'Accept': 'application/json',
@@ -108,7 +110,7 @@ export const GetUserAPI = async (token, id) => {
 
 // Suppression d'un utilisateur
 export const DeleteUserAPI = async(token, id) => {
-  let response = await fetch(`http://localhost:3001/api/user/${id}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/user/${id}`, {
     method: "DELETE",
     headers: {
       'Accept': 'application/json',
@@ -121,7 +123,7 @@ export const DeleteUserAPI = async(token, id) => {
 
 // Modification d'un user
 export const UpdateUserAPI = async(token, id, body) => {
-  let response = await fetch(`http://localhost:3001/api/user/${id}`, {
+  let response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/api/user/${id}`, {
     method: "PUT",
     headers: {
       'Authorization': `Bearer ${token}`

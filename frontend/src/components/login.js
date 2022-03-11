@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -15,6 +15,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [succes, setSucces] = useState(false);
+  const navigate = useNavigate();
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ function Login() {
         setSucces(true);
         localStorage.setItem("token", resFinal.token);
         setMessage("User connected !");
+        navigate("/");
       } else {
         setMessage("Some error occured");
       }
@@ -59,7 +61,6 @@ function Login() {
         <Link to="/">
     <ArrowBackIcon  fontSize="large" style={{ color: "#1976d"}} ></ArrowBackIcon>
     </Link>
-        {succes && <Navigate to="/" />}
       <form  style={{ display: "flex", flexDirection: "column", width: 300, }} onSubmit={handleSubmit}>
         <TextField style={{ marginBottom: "5px" }}
           name="email"
