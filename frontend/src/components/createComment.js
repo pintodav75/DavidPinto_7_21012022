@@ -37,6 +37,7 @@ function    CreateComment (props) {
             >
                 <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center', borderRadius: 5, width: 250, border: "solid 2px #1976d2" }}>
                     <Input placeholder="  comment here..." type="text"
+                        required
                         value={content}
                         onChange={(e) => setContent(e.target.value)}  />
                     <Button type='submit' variant="text" endIcon={<ModeCommentIcon />}></Button>

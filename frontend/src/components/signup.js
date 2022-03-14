@@ -18,6 +18,7 @@ function Signup() {
   const [succes, setSucces] = useState(false);
 
   let handleSubmit = async (e) => {
+
     e.preventDefault();
     try {
       let res = await fetch("http://localhost:3001/api/user/signup", {
@@ -67,11 +68,14 @@ function Signup() {
       <form  style={{ display: "flex", flexDirection: "column", width: 300, }} onSubmit={handleSubmit}>
         <TextField style={{ marginBottom: "5px" }}
           name="email"
+          required
           placeholder="email"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField style={{ marginBottom: "5px" }}
+          required
           name="password"
           type="password"
           placeholder="password"
@@ -79,6 +83,7 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <TextField style={{ marginBottom: "5px" }}
+          required
           name="first name"
           placeholder="first name"
           value={firstName}
@@ -86,6 +91,7 @@ function Signup() {
         />
         <TextField style={{ marginBottom: "5px" }}
           name="last name"
+          required
           placeholder="last name"
           value={lastName}
           onChange={(e) => setLastname(e.target.value)}

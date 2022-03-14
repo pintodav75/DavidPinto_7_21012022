@@ -48,12 +48,14 @@ function CreatePost({ refresh }) {
         >
       <TextField
         id="outlined-name"
+        required
         label="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       /> <br></br>
       <TextField
         id="outlined-name"
+        required
         label="your post..."
         value={content}
         onChange={(e) => setContent(e.target.value)}

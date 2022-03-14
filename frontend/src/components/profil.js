@@ -197,10 +197,7 @@ function User() {
     </Card>
     </Grid>      
  </Grid>
- <div style={{ 
-          left: 0,
-          bottom: 0,
-          right: 0, }} >
+ <div style={{ left: 0, bottom: 0, right: 0, position: "relative" }} >
             <footer style={{ backgroundColor: "#1976d2", alignItems: "center", justifyContent: "center", display: "flex", width: "100%", border: "solid 2px black", borderRadius: 5 }} >
       <div className="footer__disclaimer">
         <div className="lost-container">
