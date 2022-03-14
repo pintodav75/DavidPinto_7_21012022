@@ -114,55 +114,6 @@ export default function Post ({ id, createdAt, imageUrl, title, content, userId,
         <Comment token={token} postId={id} />
         <CreateComment postId={id}/>
     </Card>
-
-
-
-        // <List sx={{ width: '100%', maxWidth: 360  }} >
-        //     <ListItem alignItems="flex-start" style={{ backgroundColor: "#D3DCE2", borderRadius: 5 }}>
-        //     <ListItemAvatar>
-        //       <div style={{ display: "flex", justifyContent: "row", flexDirection: "column", alignItems: "center"}}>
-        //         <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
-        //         <div style={{ padding: 5 }}>{User.firstName}</div>
-        //       </div>
-        //     </ListItemAvatar>
-        //     <ListItemText 
-        //   primary={
-        //     <React.Fragment>
-        //        {titleValue} 
-        //       <Typography
-        //         sx={{ display: 'inline' }}
-        //         component="span"
-        //         variant="h5"
-        //         color="text.primary"
-        //       >
-        //       </Typography>              
-        //     </React.Fragment>
-        //   }
-        //   secondary={
-        //     <React.Fragment>
-        //       <Typography
-        //         sx={{ display: 'inline' }}
-        //         component="span"
-        //         variant="subtitle2"
-        //         color="text.primary"
-        //       />
-        //       <div style={{ color: "red" }}>
-        //        {contentValue}
-        //        </div>
-        //     </React.Fragment>
-        //   }
-        // />
-        // {!shouldDisabled(myDecodedToken.isAdmin, myDecodedToken.userId, userId) && 
-        //     <>
-        //         <EditOutlinedIcon  onClick={() => setIsEdit(true)} style={{ color: 'grey', cursor: "pointer" }} />
-        //         <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
-        //     </>
-        // }
-        // </ListItem>
-        // <Comment token={token} postId={id} />
-        // <CreateComment postId={id}/>
-        // <Divider variant="inset" component="li" />
-        // </List>
     )
 }
             

@@ -18,6 +18,10 @@ import { Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import { IconButton } from "@mui/material";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 function User() {
     const [user, setUser] = useState(null);
@@ -187,12 +191,33 @@ function User() {
         
       </CardContent>
       <CardActions>
-        <Button onClick={() => DeleteUser(token, id)} href="http://localhost:3000/" size="small">delete</Button>
+        <Button onClick={() => DeleteUser(token, id)} size="small">delete</Button>
         <Button onClick={() => setIsEdit(true)} size="small">Edit </Button>
       </CardActions>
     </Card>
     </Grid>      
  </Grid>
+ <div style={{ 
+          left: 0,
+          bottom: 0,
+          right: 0, }} >
+            <footer style={{ backgroundColor: "#1976d2", alignItems: "center", justifyContent: "center", display: "flex", width: "100%", border: "solid 2px black", borderRadius: 5 }} >
+      <div className="footer__disclaimer">
+        <div className="lost-container">
+            <h1 style={{ color: "white", fontFamily: "Roboto" }} >GROUPOMANIA</h1>
+            <p>© 2022 -  Reseau social d'entreprise</p>
+              <span>Contact:</span>
+              <span style={{ borderBottom: "solid 1px black" }} > groupomania@gmail.com</span>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "5px" }}>
+              <InstagramIcon></InstagramIcon>
+              <TwitterIcon></TwitterIcon>
+              <FacebookIcon></FacebookIcon>
+              <LinkedInIcon></LinkedInIcon>
+              </div>
+        </div>
+      </div>
+    </footer>
+    </div>
       </div>
    )
 }
