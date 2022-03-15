@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Mar 13 17:54:10 2022
+# Make data base, printed on Tue Mar 15 11:48:21 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -25,7 +27,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-eae5e251-80f3-46fa-8a55-d57de8eed1a5.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1d42cdf5-98ea-4853-8682-43dd08de1ea4.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
 # environment
@@ -89,7 +91,7 @@ CURDIR := /home/david/Desktop/groupomania/backend
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -117,7 +119,7 @@ ZSH = /home/david/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 5156
+VSCODE_PID = 6815
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -125,7 +127,7 @@ XDG_SESSION_TYPE = x11
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1245,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1245
+SESSION_MANAGER = local/david-ThinkPad-L590:@/tmp/.ICE-unix/1240,unix/david-ThinkPad-L590:/tmp/.ICE-unix/1240
 # automatic
 *F = $(notdir $*)
 # environment
@@ -157,7 +159,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-PATH = /home/david/.nvm/versions/node/v14.18.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -171,7 +173,7 @@ LC_TIME = fr_FR.UTF-8
 # environment
 SNAP = /snap/code/91
 # environment
-INVOCATION_ID = e210deaf9ed54a768a52a326e70f3ba3
+INVOCATION_ID = e70479c57e9448eb811e40186f30bfd3
 # environment
 SNAP_REVISION = 91
 # environment
@@ -207,7 +209,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := up-node
 # environment
-SYSTEMD_EXEC_PID = 1280
+SYSTEMD_EXEC_PID = 1264
 # environment
 DISPLAY = :0
 # environment
@@ -225,11 +227,11 @@ SNAP_DATA = /var/snap/code/91
 # environment
 SNAP_CONTEXT = Q4g0y_Cc4qmGVkyMjVxhmBP06e8gJAPhoPJTBA5fUDlISQ_A4dPK
 # environment
-MANAGERPID = 964
+MANAGERPID = 970
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5109
+GIO_LAUNCHED_DESKTOP_FILE_PID = 15886
 # environment
 PAGER = less
 # environment
@@ -245,7 +247,7 @@ GDK_PIXBUF_MODULE_FILE = /home/david/snap/code/common/.cache/gdk-pixbuf-loaders.
 # environment
 NVM_CD_FLAGS = -q
 # environment
-JOURNAL_STREAM = 8:29220
+JOURNAL_STREAM = 8:23176
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -278,9 +280,9 @@ VSCODE_CLI = 1
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 SNAP_COMMON = /var/snap/code/common
+ 
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
- 
 # environment
 SNAP_USER_DATA = /home/david/snap/code/91
 # environment
@@ -292,7 +294,7 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=139/1024=14%, Rehash=0, Collisions=6/169=4%
+# Load=140/1024=14%, Rehash=0, Collisions=6/170=4%
 
 # Pattern-specific Variable Values
 
@@ -378,6 +380,6 @@ down:
 # strcache performance: lookups = 39 / hit rate = 23%
 # hash-table stats:
 # Load=30/8192=0%, Rehash=0, Collisions=0/39=0%
-# Finished Make data base on Sun Mar 13 17:54:10 2022
+# Finished Make data base on Tue Mar 15 11:48:21 2022
 
  

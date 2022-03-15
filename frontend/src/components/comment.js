@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { DeleteCommentAPI, GetAllCommentAPI } from "../api";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import DeleteSweepOutlinedIcon from '@mui/icons-material/DeleteSweepOutlined';
 
 
 
-const Comment = ({ token, postId}) => {
+const Comment = ({ token, postId, User }) => {
     const [comments, setComments] = useState([]);
 
     async function getComment() {
@@ -39,9 +39,9 @@ const Comment = ({ token, postId}) => {
     return (
     <div>
         {comments.map((e) => (
-            <div key={ `${e.id}-${e.postId}`} style={{ display: "flex", justifyContent: "space-between", borderStyle: "outset"  }} >
-                <div> {e.content}</div>
-                <HighlightOffIcon fontSize="inherit" onClick={() =>  DeleteComment(e.id)} style={{ cursor: "pointer" }} />
+            <div key={ `${e.id}-${e.postId}`} style={{ display: "flex", justifyContent: "space-between", backgroundColor: "#8BD8D6", borderRadius: 5, border: "solid 1px #1976d2" }} >
+                <div style={{ fontSize: "15px", fontFamily: "sans-serif" }} > {e.content}</div>
+                <DeleteSweepOutlinedIcon fontSize="medium" onClick={() =>  DeleteComment(e.id)} style={{ cursor: "pointer" }} />
             </div>
         ))}
     </div>

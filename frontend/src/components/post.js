@@ -66,12 +66,14 @@ export default function Post ({ id, createdAt, imageUrl, title, content, userId,
             >
           <TextField
             id="outlined-name"
+            required
             label="title"
             value={titleValue}
             onChange={(e) => setTitleValue(e.target.value)}
           /> <br></br>
           <TextField
             id="outlined-name"
+            required
             label="your post..."
             value={contentValue}
             onChange={(e) => setContentValue(e.target.value)}
@@ -107,11 +109,11 @@ export default function Post ({ id, createdAt, imageUrl, title, content, userId,
         alt="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="subtitle1" color="text.secondary">
         {contentValue}
         </Typography>
       </CardContent>
-        <Comment token={token} postId={id} />
+        <Comment token={token} postId={id} User={User} />
         <CreateComment postId={id}/>
     </Card>
     )
