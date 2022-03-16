@@ -92,7 +92,7 @@ export default function Post ({ id, createdAt, imageUrl, title, content, userId,
       <CardHeader
         avatar={
           <Avatar alt="img profil" src={`http://localhost:3001/images/${User.imageUrl || 'no-image.png'}`} />
-        }
+        } 
         title={titleValue}
         subheader= {newDate.toUTCString()}
       />
@@ -102,12 +102,14 @@ export default function Post ({ id, createdAt, imageUrl, title, content, userId,
                <DeleteIcon onClick={() => DeletePost(id)} style={{ color: 'red', cursor: "pointer" }} />       
             </>
         }
+        { imageUrl != null && 
       <CardMedia
         component="img"
         height="194"
         image={`http://localhost:3001/images/${imageUrl || 'no-image.png'}`}
         alt="Paella dish"
       />
+        }
       <CardContent>
         <Typography variant="subtitle1" color="text.secondary">
         {contentValue}

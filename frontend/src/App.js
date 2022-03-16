@@ -89,7 +89,16 @@ export default function App() {
           <div>
             <CreatePost refresh={fetchData}   />
             <GetAllPost posts={posts} refresh={fetchData} />
-            <div style={{ position: "relative", left: 0, bottom: 0, right: 0}} >
+          </div>
+        }
+        {errorMessage && <div>{errorMessage.toString()}</div>}
+        
+        {logged === false && 
+        <div style={{ width: "auto", height: "700px", display: "flex", justifyContent: "center", borderRadius: 5, backgroundImage: `url("https://st4.depositphotos.com/2673929/30163/i/1600/depositphotos_301636878-stock-photo-social-network-icons-on-blue.jpg")` }}>
+          <div style={{ width: "50%", height: "50%", borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center", fontSize: "50px", fontFamily: "sans-serif", color: "white", textAlign: "center" }}> Bienvenue sur votre reseau social d'entreprise ! </div>
+        </div>
+          }
+        <div style={{ position: "relative", left: 0, bottom: 0, right: 0}} >
             <footer style={{ backgroundColor: "#1976d2", alignItems: "center", justifyContent: "center", display: "flex", width: "100%", border: "solid 2px black", borderRadius: 5 }} >
       <div className="footer__disclaimer">
         <div className="lost-container">
@@ -107,10 +116,6 @@ export default function App() {
       </div>
     </footer>
     </div>
-          </div>
-        }
-        {errorMessage && <div>{errorMessage.toString()}</div>}
-        
     </div>
   );
 }
