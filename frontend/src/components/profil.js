@@ -54,6 +54,7 @@ function User() {
           let res = await GetUserAPI(token, id);
           if (res.status === 200) {
               const userInfo = await res.json();
+              console.log(userInfo);
               if (!userInfo.user.imageUrl)
                 userInfo.user.imageUrl = "no-image.png"
               setUser(userInfo);

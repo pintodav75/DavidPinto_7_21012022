@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../models/index');
 require('dotenv').config();
+const fs =  require('fs');
 
 exports.signup = (req, res, next) => {
     db.Users.findOne({
@@ -66,7 +67,16 @@ exports.getOneUser = (req, res, next) => {
     .catch(error => res.status(404).json({ error }));
 };
 
+
 exports.deleteUser = (req, res, next) => {
+    db.Users.findOne({
+        where: { id: req.params.id }
+    })
+    .then((user) => {
+        if (user && user.imageUrl) {
+           fs.unlinkSync(`${__dirname}/../images/${user.imageUrl}`);
+        }
+    })
     db.Users.destroy({
         where: { id: req.params.id }
     })
